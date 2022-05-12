@@ -37,4 +37,4 @@ build/
 .mvn/
 
 ### logs ###
-.logs/
+logs/
