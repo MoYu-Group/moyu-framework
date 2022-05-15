@@ -1,4 +1,0 @@
-#基础配置文件，存放公共配置
-spring:
-  profiles:
-    active: dev

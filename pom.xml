@@ -10,39 +10,22 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <modules>
-        <module>moyu-common</module>
-        <module>moyu-service</module>
-        <module>moyu-start</module>
-    </modules>
-
-    <groupId>org.moyu</groupId>
+    <groupId>io.github.moyu</groupId>
     <artifactId>moyu-framework</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>moyu-base</module>
+    </modules>
 
     <name>moyu-framework</name>
-    <description>moyu-framework</description>
-    <packaging>pom</packaging>
+    <description>A springboot framework for rapid development</description>
 
     <properties>
         <java.version>17</java.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.moyu</groupId>
-                <artifactId>moyu-common</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.moyu</groupId>
-                <artifactId>moyu-service</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
 </project>
