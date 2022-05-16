@@ -47,25 +47,38 @@
         <url>git@github.com:MoYu-Group/moyu-framework.git</url>
     </scm>
 
+    <!-- 默认装载的插件 -->
+    <build>
+        <plugins>
+            <!-- Maven 部署插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.8</version>
+            </plugin>
+            <!-- 源代码 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!-- 根据选择的配置装载的插件 -->
     <profiles>
         <profile>
-            <id>release</id>
+            <id>maven-center</id>
             <build>
                 <plugins>
-                    <!-- 源代码 -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-source-plugin</artifactId>
-                        <version>2.2.1</version>
-                        <executions>
-                            <execution>
-                                <id>attach-sources</id>
-                                <goals>
-                                    <goal>jar-no-fork</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
                     <!-- nexus仓库插件 -->
                     <plugin>
                         <groupId>org.sonatype.plugins</groupId>
@@ -130,17 +143,17 @@
             </distributionManagement>
         </profile>
         <profile>
-            <id>aliyun</id>
-            <build>
-                <plugins>
-                    <!-- Maven 部署插件 -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-deploy-plugin</artifactId>
-                        <version>2.8</version>
-                    </plugin>
-                </plugins>
-            </build>
+            <id>moyu-repository</id>
+            <distributionManagement>
+                <snapshotRepository>
+                    <id>moyu-repository</id>
+                    <url>https://maven.ffis.me/snapshots</url>
+                </snapshotRepository>
+                <repository>
+                    <id>moyu-repository</id>
+                    <url>https://maven.ffis.me/releases</url>
+                </repository>
+            </distributionManagement>
         </profile>
     </profiles>
 
