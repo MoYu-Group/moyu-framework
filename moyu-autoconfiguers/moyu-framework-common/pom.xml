@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>moyu-autoconfiguers</artifactId>
+        <groupId>io.github.moyu-group</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>moyu-framework-common</artifactId>
+
+    <name>moyu-util</name>
+    <description>本工程用于定义可自动装配的公共服务和依赖</description>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <moyu-util.version>0.0.1-SNAPSHOT</moyu-util.version>
+        <moyu-model.version>0.0.1-SNAPSHOT</moyu-model.version>
+    </properties>
+
+    <dependencies>
+        <!-- moyu 工具包 -->
+        <dependency>
+            <groupId>io.github.moyu-group</groupId>
+            <artifactId>moyu-util</artifactId>
+        </dependency>
+        <!-- moyu 公共模型 -->
+        <dependency>
+            <groupId>io.github.moyu-group</groupId>
+            <artifactId>moyu-model</artifactId>
+        </dependency>
+        <!-- 参数校验 -->
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+        </dependency>
+        <!-- json 工具包 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
+
+    </dependencies>
+
+</project>

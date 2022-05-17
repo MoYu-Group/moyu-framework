@@ -17,6 +17,7 @@
 
     <modules>
         <module>moyu-base</module>
+        <module>moyu-autoconfiguers</module>
     </modules>
 
     <name>moyu-framework</name>
@@ -27,7 +28,47 @@
         <java.version>17</java.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <commons-io.version>2.11.0</commons-io.version>
+        <commons-validator.version>7.0.4.Final</commons-validator.version>
+        <fastjson.version>2.0.3</fastjson.version>
     </properties>
+
+    <!-- 统一依赖版本管理 -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- moyu 工具包 -->
+            <dependency>
+                <groupId>io.github.moyu-group</groupId>
+                <artifactId>moyu-util</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!-- moyu 公共模型 -->
+            <dependency>
+                <groupId>io.github.moyu-group</groupId>
+                <artifactId>moyu-model</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!-- io 工具包 -->
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
+            </dependency>
+            <!-- 参数校验 -->
+            <dependency>
+                <groupId>org.hibernate.validator</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${hibernate-validator.version}</version>
+            </dependency>
+            <!-- json 工具包 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
 
     <licenses>
         <license>
@@ -75,6 +116,7 @@
 
     <!-- 根据选择的配置装载的插件 -->
     <profiles>
+        <!-- maven 中央仓库配置，用于开发人员向中央仓库发布 release 版本使用 -->
         <profile>
             <id>maven-center</id>
             <build>
@@ -142,6 +184,7 @@
                 </repository>
             </distributionManagement>
         </profile>
+        <!-- moyu-group 专用仓库，用于开发人员发布 SNAPSHOT 版本使用 -->
         <profile>
             <id>moyu-repository</id>
             <distributionManagement>

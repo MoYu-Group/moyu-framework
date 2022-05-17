@@ -1,0 +1,7 @@
+# Auto Configure
+#Configureorg.springframework.boot.SpringApplicationRunListener=\
+#io.github.moyugroup.framework.listener.FrameworkRunListener
+#
+#org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+#io.github.moyugroup.framework.aop.ParameterValidationConfiguration
+#
