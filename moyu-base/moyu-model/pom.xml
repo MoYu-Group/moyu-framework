@@ -10,11 +10,9 @@
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>moyu-model</artifactId>
+    <description>本工程用于定义公共的模型类，PO的基类，统一的返回值，分页查询对象等</description>
 
     <packaging>jar</packaging>
-
-    <name>moyu-model</name>
-    <description>本工程用于定义公共的模型类，PO的基类，统一的返回值，分页查询对象等</description>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

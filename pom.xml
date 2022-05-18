@@ -48,6 +48,12 @@
                 <artifactId>moyu-model</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <!-- moyu 通用服务 -->
+            <dependency>
+                <groupId>io.github.moyu-group</groupId>
+                <artifactId>moyu-framework-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
             <!-- io 工具包 -->
             <dependency>
                 <groupId>commons-io</groupId>
@@ -59,12 +65,6 @@
                 <groupId>org.hibernate.validator</groupId>
                 <artifactId>hibernate-validator</artifactId>
                 <version>${hibernate-validator.version}</version>
-            </dependency>
-            <!-- json 工具包 -->
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>fastjson</artifactId>
-                <version>${fastjson.version}</version>
             </dependency>
 
         </dependencies>

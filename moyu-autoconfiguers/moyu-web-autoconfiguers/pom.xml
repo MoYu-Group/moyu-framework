@@ -9,33 +9,30 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>moyu-framework-common</artifactId>
-    <description>本工程用于定义可自动装配的公共服务和依赖</description>
+    <artifactId>moyu-web-autoconfiguers</artifactId>
+    <description>快速集成web工程</description>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <moyu-util.version>0.0.1-SNAPSHOT</moyu-util.version>
-        <moyu-model.version>0.0.1-SNAPSHOT</moyu-model.version>
     </properties>
 
     <dependencies>
-        <!-- moyu 工具包 -->
+        <!-- moyu 通用服务 -->
         <dependency>
             <groupId>io.github.moyu-group</groupId>
-            <artifactId>moyu-util</artifactId>
+            <artifactId>moyu-framework-common</artifactId>
         </dependency>
-        <!-- moyu 公共模型 -->
+        <!-- spring-boot-web -->
         <dependency>
-            <groupId>io.github.moyu-group</groupId>
-            <artifactId>moyu-model</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!-- 参数校验 -->
+        <!-- spring-boot-thymeleaf 模板引擎 -->
         <dependency>
-            <groupId>org.hibernate.validator</groupId>
-            <artifactId>hibernate-validator</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
-
     </dependencies>
 
 </project>
