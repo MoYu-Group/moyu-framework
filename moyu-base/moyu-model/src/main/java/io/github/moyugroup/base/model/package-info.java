@@ -1,0 +1,1 @@
+package io.github.moyugroup.base.model;
