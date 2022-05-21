@@ -30,7 +30,7 @@ import java.util.Objects;
 public class MethodTimeAopInterceptor implements MethodInterceptor {
 
     /**
-     * 框架自定义的切点
+     * 框架定义aop切面排除的地址
      */
     private String frameworkExclusions;
     /**

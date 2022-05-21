@@ -1,4 +1,5 @@
 #框架层配置，会在容器启动的时候通过监听器加载
 framework:
   method-time:
+    #aop切面排除的列表
     exclusions: .*\\.js,.*\\.css,.*\\.html,.*\\.htm,.*\\.png,.*\\.jpg,.*\\.jpeg,.*\\.ico,.*\\.woff2,\/swagger-resources.*,/v2/api-docs,/error,/health
