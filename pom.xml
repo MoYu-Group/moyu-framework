@@ -18,6 +18,7 @@
     <modules>
         <module>moyu-base</module>
         <module>moyu-autoconfiguers</module>
+        <module>moyu-sample</module>
     </modules>
 
     <name>moyu-framework</name>
@@ -30,7 +31,11 @@
         <maven.compiler.target>17</maven.compiler.target>
         <commons-io.version>2.11.0</commons-io.version>
         <commons-validator.version>7.0.4.Final</commons-validator.version>
-        <fastjson.version>2.0.3</fastjson.version>
+        <lombok.version>1.18.24</lombok.version>
+        <commons-lang.version>2.6</commons-lang.version>
+        <guava.version>31.1-jre</guava.version>
+        <hutool-all.version>5.8.0</hutool-all.version>
+        <aspectjweaver.version>1.9.9.1</aspectjweaver.version>
     </properties>
 
     <!-- 统一依赖版本管理 -->
@@ -54,6 +59,12 @@
                 <artifactId>moyu-framework-common</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <!-- moyu web快速开发 -->
+            <dependency>
+                <groupId>io.github.moyu-group</groupId>
+                <artifactId>moyu-web-autoconfiguers</artifactId>
+                <version>${project.version}</version>
+            </dependency>
             <!-- io 工具包 -->
             <dependency>
                 <groupId>commons-io</groupId>
@@ -66,9 +77,50 @@
                 <artifactId>hibernate-validator</artifactId>
                 <version>${hibernate-validator.version}</version>
             </dependency>
+            <!-- lombok -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <!-- commons-lang -->
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>${commons-lang.version}</version>
+            </dependency>
+            <!-- google-guava -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+            <!-- hutool-all -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool-all.version}</version>
+            </dependency>
+            <!-- aspectjweaver 切点表达式支持 -->
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver</artifactId>
+                <version>${aspectjweaver.version}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>
+
+    <dependencies>
+        <!-- lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <!-- scope = provided 只在编译和测试的过程有效，不会进行打包，所以无法通过引用maven坐标的方式进行依赖
+                 在父工程中引用，可以实现在整个框架中都使用 -->
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 
     <licenses>
         <license>
@@ -90,6 +142,29 @@
 
     <!-- 默认装载的插件 -->
     <build>
+        <resources>
+            <!-- 资源加载配置 -->
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <!-- 定义打包的时候包含的资源文件 -->
+                    <include>**/*.xml</include>
+                </includes>
+                <!-- 开启 filtering 配置，能在 spring 中使用${}表达式获取 maven 配置文件中的配置项，directory 为生效的范围
+                     如果依赖了 spring-boot-starter-parent 工程，则需要用表达式 @value@ 获取，并且加上单引号 -->
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <!-- 定义打包的时候包含文件夹以及子文件夹下所有资源 -->
+                    <include>**/*.*</include>
+                </includes>
+                <!-- 开启 filtering 配置，能在 spring 中使用${}表达式获取 maven 配置文件中的配置项，directory 为生效的范围
+                     如果依赖了 spring-boot-starter-parent 工程，则需要用表达式 @value@ 获取，并且加上单引号 -->
+                <filtering>true</filtering>
+            </resource>
+        </resources>
         <plugins>
             <!-- Maven 部署插件 -->
             <plugin>

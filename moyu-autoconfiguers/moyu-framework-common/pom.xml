@@ -30,11 +30,24 @@
             <groupId>io.github.moyu-group</groupId>
             <artifactId>moyu-model</artifactId>
         </dependency>
+        <!-- spring-boot-starte -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
         <!-- 参数校验 -->
         <dependency>
             <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
         </dependency>
+        <!-- aspectj weaver 切点表达式支持 -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <!-- 跳过编译，只在运行时参与 -->
+            <scope>runtime</scope>
+        </dependency>
+
 
     </dependencies>
 

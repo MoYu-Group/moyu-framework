@@ -1,0 +1,4 @@
+org.springframework.boot.SpringApplicationRunListener=\
+io.github.moyugroup.web.listener.FrameworkRunListener
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+io.github.moyugroup.web.aop.MethodTimeAspect

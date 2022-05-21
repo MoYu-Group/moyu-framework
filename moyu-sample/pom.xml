@@ -3,24 +3,21 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
+        <artifactId>moyu-framework</artifactId>
         <groupId>io.github.moyu-group</groupId>
-        <artifactId>moyu-base</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>moyu-model</artifactId>
-    <description>本工程用于定义公共的模型类，PO的基类，统一的返回值，分页查询对象等</description>
 
-    <packaging>jar</packaging>
-
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-    </properties>
+    <artifactId>moyu-sample</artifactId>
+    <description>框架快速集成示例</description>
 
     <dependencies>
-
+        <!-- 集成web快速开发 -->
+        <dependency>
+            <groupId>io.github.moyu-group</groupId>
+            <artifactId>moyu-web-autoconfiguers</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

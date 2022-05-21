@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<included>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <!--APP_NAME-->
+    <springProperty scope="context" name="APP_NAME" source="spring.application.name" defaultValue="moyu-framework"/>
+    <!--日志路径 默认取 Spring 配置文件中的 logging.file.path 路径，如果没有配置则取 用户主目录/工程名称-->
+    <springProperty scope="context" name="LOG_PATH" source="logging.file.path" defaultValue="${user.home}/${APP_NAME}"/>
+    <!--日志文件-->
+    <property name="LOG_FILE" value="${LOG_PATH}/application.log"/>
+    <!--日志编码-->
+    <property name="CHARSET" value="UTF-8"/>
+
+    <!--控制台日志-->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <charset>${CHARSET}</charset>
+            <!--日志格式，这里用的Spring提供的默认实现，CONSOLE日志在控制台有代码高亮-->
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <!--应用日志-->
+    <appender name="APPLICATION" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_FILE}</file>
+        <encoder>
+            <charset>${CHARSET}</charset>
+            <!--日志格式，这里用的Spring提供的默认实现-->
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--文件名称，i代表文件分割时的序号-->
+            <fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!--日志储存时间-->
+            <maxHistory>14</maxHistory>
+            <!--日志文件大小，超过会进行分割-->
+            <maxFileSize>10MB</maxFileSize>
+            <!--日志文件总大小，超过会自动清理-->
+            <totalSizeCap>10GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <!--监控日志-->
+    <appender name="OPERATION_MONITOR_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/monitor/operation.log</file>
+        <append>true</append>
+        <encoder>
+            <charset>${CHARSET}</charset>
+            <!--日志格式，这里用的Spring提供的默认实现-->
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--文件名称，i代表文件分割时的序号-->
+            <fileNamePattern>${LOG_PATH}/monitor/operation.log.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!--日志储存时间-->
+            <maxHistory>14</maxHistory>
+            <!--日志文件大小，超过会进行分割-->
+            <maxFileSize>10MB</maxFileSize>
+            <!--日志文件总大小，超过会自动清理-->
+            <totalSizeCap>10GB</totalSizeCap>
+        </rollingPolicy>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+            <level>INFO</level>
+        </filter>
+    </appender>
+
+    <!--业务日志-->
+    <appender name="BUSINESS_LOG_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/business/business_log.log</file>
+        <encoder>
+            <charset>${CHARSET}</charset>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--文件名称，i代表文件分割时的序号-->
+            <fileNamePattern>${LOG_PATH}/business/business_log.log.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!--日志储存时间-->
+            <maxHistory>14</maxHistory>
+            <!--日志文件大小，超过会进行分割-->
+            <maxFileSize>10MB</maxFileSize>
+            <!--日志文件总大小，超过会自动清理-->
+            <totalSizeCap>10GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <!--应用日志 异步实现-->
+    <appender name="APPLICATION_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+        <!--内部实现是一个有界ArrayBlockingQueue,queueSize是队列大小。该值会影响性能.默认值为256-->
+        <queueSize>512</queueSize>
+        <!--neverBlock=true则写日志队列时候会调用阻塞队列的offer方法而不是put，如果队列满则直接返回，而不是阻塞，即日志被丢弃。-->
+        <neverBlock>true</neverBlock>
+        <!--实际负责写日志的appender，最多只能添加一个-->
+        <appender-ref ref="APPLICATION"/>
+        <!-- asyncAppender为提高性能，默认关闭打印行号/方法名等 -->
+        <includeCallerData>true</includeCallerData>
+    </appender>
+
+    <!--监控日志 异步实现-->
+    <appender name="OPERATION_MONITOR_APPENDER_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+        <!--内部实现是一个有界ArrayBlockingQueue,queueSize是队列大小。该值会影响性能.默认值为256-->
+        <queueSize>512</queueSize>
+        <!--neverBlock=true则写日志队列时候会调用阻塞队列的offer方法而不是put，如果队列满则直接返回，而不是阻塞，即日志被丢弃。-->
+        <neverBlock>true</neverBlock>
+        <!--实际负责写日志的appender,最多只能添加一个-->
+        <appender-ref ref="OPERATION_MONITOR_APPENDER"/>
+        <!-- asyncAppender为提高性能，默认关闭打印行号/方法名等 -->
+        <includeCallerData>true</includeCallerData>
+    </appender>
+
+    <!--业务日志 异步实现-->
+    <appender name="BUSINESS_LOG_APPENDER_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+        <!--内部实现是一个有界ArrayBlockingQueue,queueSize是队列大小。该值会影响性能.默认值为256-->
+        <queueSize>512</queueSize>
+        <!--neverBlock=true则写日志队列时候会调用阻塞队列的offer方法而不是put，如果队列满则直接返回，而不是阻塞，即日志被丢弃。-->
+        <neverBlock>true</neverBlock>
+        <!--实际负责写日志的appender,最多只能添加一个-->
+        <appender-ref ref="BUSINESS_LOG_APPENDER"/>
+    </appender>
+
+    <!--定义日志的子logger对象，用于在程序中创建对应的logger对象，使用不同的logger将日志输出到不同的文件中-->
+    <logger name="MONITOR_LOG" additivity="false">
+        <appender-ref ref="OPERATION_MONITOR_APPENDER_ASYNC"/>
+    </logger>
+
+    <!--定义日志的子logger对象，用于在程序中创建对应的logger对象，使用不同的logger将日志输出到不同的文件中-->
+    <logger name="BUSINESS_LOG_FILE" additivity="false">
+        <appender-ref ref="BUSINESS_LOG_APPENDER_ASYNC"/>
+    </logger>
+
+    <!--定义日志的根logger对象-->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="APPLICATION_ASYNC"/>
+    </root>
+</included>

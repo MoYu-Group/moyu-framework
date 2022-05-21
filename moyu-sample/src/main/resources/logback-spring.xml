@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!--引用 MoYu 框架公共日志配置-->
+    <include resource="io/github/moyugroup/logback/logback-base.xml"/>
+
+    <!--定义日志的根logger对象-->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="APPLICATION_ASYNC"/>
+    </root>
+</configuration>
