@@ -4,6 +4,7 @@ spring:
     #在 yml 中获取 maven 配置文件 pom.xml 中的配置，需要配置 maven 插件中的资源加载配置 filtering=true 且生效范围为 src/main/resources
     #如果依赖了 spring-boot-starter-parent 工程，则需要用表达式 @value@ 获取，并且加上单引号
     name: '@project.artifactId@'
+    version: '@project.version@'
 moyu:
   #方法运行切面日志
   method-time:

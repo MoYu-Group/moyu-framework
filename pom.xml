@@ -120,6 +120,12 @@
                  在父工程中引用，可以实现在整个框架中都使用 -->
             <scope>provided</scope>
         </dependency>
+        <!-- spring-boot-test -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <licenses>
