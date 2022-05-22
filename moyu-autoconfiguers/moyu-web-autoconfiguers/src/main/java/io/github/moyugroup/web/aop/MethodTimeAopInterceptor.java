@@ -90,8 +90,8 @@ public class MethodTimeAopInterceptor implements MethodInterceptor {
             log.info("Http:{}|RequestUri:{}|Params:{}|IP:{}|Time:{}ms|Method:{}",
                     httpMethod, requestUri, params, ip, clock.getTime(), signature);
 
-            // 监控日志埋点，如果引入了 MoYu 框架的日志配置，会单独导出到 logPath/logs/monitor/operation.log 文件中，便于单独进行日志分析
-            // 否则会输出到 console，除非自己指定 loggerName=MONITOR_LOG 的配置
+            // 监控日志埋点，如果引入了 MoYu 框架的日志配置，会单独将监控的日志输出到 ${logPath}/logs/monitor/operation.log 文件中，便于单独进行日志分析
+            // 否则会将日志输出到 console，除非自己指定 loggerName=MONITOR_LOG 的 logback 配置
             String appName = PropertyUtil.getProperty("spring.application.name", String.class, null);
             String serviceName = method.getDeclaringClass().toString();
             String logName = serviceName.substring(serviceName.lastIndexOf(".") + 1) + "." + method.getName() + ":" + (Objects.isNull(request) ? "" : request.getMethod());
