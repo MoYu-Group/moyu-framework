@@ -1,4 +1,6 @@
-org.springframework.boot.SpringApplicationRunListener=\
-io.github.moyugroup.web.listener.FrameworkRunListener
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-io.github.moyugroup.web.aop.MethodTimeAspect
+org.springframework.boot.env.EnvironmentPostProcessor=\
+io.github.moyugroup.web.listener.MyEnvironmentPostProcessor
+#org.springframework.boot.SpringApplicationRunListener=\
+#io.github.moyugroup.web.listener.FrameworkRunListener
+#org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+#io.github.moyugroup.web.aop.MethodTimeAspect

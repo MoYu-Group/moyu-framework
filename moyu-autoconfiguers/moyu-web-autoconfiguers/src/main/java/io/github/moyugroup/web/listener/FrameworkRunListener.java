@@ -30,7 +30,8 @@ public class FrameworkRunListener extends ApplicationRunAdapter {
      */
     @Override
     public void environmentPrepared(ConfigurableBootstrapContext bootstrapContext, ConfigurableEnvironment environment) {
-        //初始化框架默认配置
+    // 初始化框架默认配置
+
         PropertyUtil.loadModuleConfigToEnvironment(environment, CONFIG_MODULE);
     }
 
