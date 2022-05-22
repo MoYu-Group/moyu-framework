@@ -19,17 +19,19 @@ import org.springframework.util.Assert;
  * 实现EnvironmentPostProcessor接口，加载配置文件,同时也为以后动态加载配置文件做准备
  */
 @Order(HIGHEST_PRECEDENCE)
-public  class FrameworkEnvironmentPostProcessor implements EnvironmentPostProcessor {
+public class FrameworkEnvironmentPostProcessor implements EnvironmentPostProcessor {
 
     private final YamlPropertySourceLoader loader = new YamlPropertySourceLoader();
 
     /**
      * 动态加载配置文件
+     *
      * @param environment 配置文件集合的抽象接口 {@link AbstractEnvironment}
      * @param application SpringApplication实例 {@link SpringApplication}
      */
     @Override
-    public void postProcessEnvironment(ConfigurableEnvironment environment, SpringApplication application) {
+    public void postProcessEnvironment(ConfigurableEnvironment environment,
+        SpringApplication application) {
         Resource path = new ClassPathResource("config/framework.yml");
         PropertySource<?> propertySource = loadYaml(path);
         environment.getPropertySources().addLast(propertySource);
@@ -39,6 +41,7 @@ public  class FrameworkEnvironmentPostProcessor implements EnvironmentPostProces
 
     /**
      * 加载yaml配置文件
+     *
      * @param path 文件路径
      * @return 属性的抽象
      */
@@ -46,8 +49,7 @@ public  class FrameworkEnvironmentPostProcessor implements EnvironmentPostProces
         Assert.isTrue(path.exists(), () -> "Resource " + path + " does not exist");
         try {
             return this.loader.load("custom-resource", path).get(0);
-        }
-        catch (IOException ex) {
+        } catch (IOException ex) {
             throw new IllegalStateException("Failed to load yaml configuration from " + path, ex);
         }
     }

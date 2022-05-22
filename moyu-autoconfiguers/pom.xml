@@ -15,6 +15,7 @@
     <modules>
         <module>moyu-framework-common</module>
         <module>moyu-web-autoconfiguers</module>
+        <module>moyu-security-autoconfigures</module>
     </modules>
 
     <properties>
