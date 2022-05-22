@@ -10,6 +10,7 @@ import org.springframework.core.env.ConfigurableEnvironment;
 
 /**
  * 框架启动过程监听
+ * 暂时不使用监听器的方式加载配置，使用 EnvironmentPostProcessor 的方式加载
  * <p>
  * Created by fanfan on 2022/05/21.
  */
@@ -30,8 +31,7 @@ public class FrameworkRunListener extends ApplicationRunAdapter {
      */
     @Override
     public void environmentPrepared(ConfigurableBootstrapContext bootstrapContext, ConfigurableEnvironment environment) {
-    // 初始化框架默认配置
-
+        // 初始化框架默认配置
         PropertyUtil.loadModuleConfigToEnvironment(environment, CONFIG_MODULE);
     }
 
