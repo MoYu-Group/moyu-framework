@@ -1,6 +1,7 @@
 package io.github.moyugroup.controller;
 
 import cn.hutool.json.JSONObject;
+import io.github.moyugroup.base.model.pojo.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -22,12 +23,12 @@ public class DemoController {
     private String name;
 
     @GetMapping("get")
-    public HashMap<String, Object> get(String a, String b) {
+    public Result<HashMap<String, Object>> get(String a, String b) {
         HashMap<String, Object> map = new HashMap<>();
         map.put("a", a);
         map.put("b", b);
         map.put("spring.application.name", name);
-        return map;
+        return Result.success(map);
     }
 
     @PostMapping("post")
