@@ -1,5 +1,6 @@
 package io.github.moyugroup.exception;
 
+import io.github.moyugroup.base.model.enums.ExceptionEnum;
 import lombok.Getter;
 import lombok.Setter;
 

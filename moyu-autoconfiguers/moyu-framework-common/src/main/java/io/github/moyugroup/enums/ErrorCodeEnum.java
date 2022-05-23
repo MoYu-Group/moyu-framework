@@ -1,6 +1,6 @@
 package io.github.moyugroup.enums;
 
-import io.github.moyugroup.exception.ExceptionEnum;
+import io.github.moyugroup.base.model.enums.ExceptionEnum;
 
 /**
  * 通用错误码定义
@@ -63,7 +63,7 @@ public enum ErrorCodeEnum implements ExceptionEnum {
      */
     @Override
     public String getCode() {
-        return null;
+        return code;
     }
 
     /**
@@ -73,6 +73,6 @@ public enum ErrorCodeEnum implements ExceptionEnum {
      */
     @Override
     public String getMessage() {
-        return null;
+        return message;
     }
 }

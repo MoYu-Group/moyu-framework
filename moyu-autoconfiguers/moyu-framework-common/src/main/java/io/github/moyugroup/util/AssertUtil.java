@@ -1,7 +1,7 @@
 package io.github.moyugroup.util;
 
+import io.github.moyugroup.base.model.enums.ExceptionEnum;
 import io.github.moyugroup.exception.AssertException;
-import io.github.moyugroup.exception.ExceptionEnum;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;

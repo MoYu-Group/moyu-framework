@@ -1,5 +1,7 @@
 package io.github.moyugroup.exception;
 
+
+import io.github.moyugroup.base.model.enums.ExceptionEnum;
 import io.github.moyugroup.enums.ErrorCodeEnum;
 
 import java.util.Optional;

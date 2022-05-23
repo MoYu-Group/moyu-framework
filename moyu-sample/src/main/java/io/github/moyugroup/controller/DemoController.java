@@ -2,6 +2,7 @@ package io.github.moyugroup.controller;
 
 import cn.hutool.json.JSONObject;
 import io.github.moyugroup.base.model.pojo.Result;
+import io.github.moyugroup.enums.ErrorCodeEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -29,6 +30,11 @@ public class DemoController {
         map.put("b", b);
         map.put("spring.application.name", name);
         return Result.success(map);
+    }
+
+    @GetMapping("getError")
+    public Result<HashMap<String, Object>> getError() {
+        return Result.fail(ErrorCodeEnum.REQUEST_ERROR);
     }
 
     @PostMapping("post")

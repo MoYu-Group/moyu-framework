@@ -1,5 +1,6 @@
 package io.github.moyugroup.base.model.pojo;
 
+import io.github.moyugroup.base.model.enums.ExceptionEnum;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -62,39 +63,95 @@ public class Result<T> implements Serializable {
     }
 
     /**
-     * 常用构造返回封装，可以自己在实际工程中根据需要重写
+     * 构造
      *
-     * @param <T>
      * @return Result<T>
      */
     public static <T> Result<T> success() {
         return new Result<>(true, "", null);
     }
 
+    /**
+     * 构造
+     *
+     * @param data 返回数据
+     * @return Result<T>
+     */
     public static <T> Result<T> success(T data) {
         return new Result<>(true, "", data);
     }
 
+    /**
+     * 构造
+     *
+     * @param message 返回消息
+     * @param data    返回数据
+     * @return Result<T>
+     */
     public static <T> Result<T> success(String message, T data) {
         return new Result<>(true, message, data);
     }
 
+    /**
+     * 构造
+     *
+     * @param code    返回代码
+     * @param message 返回消息
+     * @param data    返回数据
+     * @return Result<T>
+     */
     public static <T> Result<T> success(String code, String message, T data) {
         return new Result<>(true, code, message, data);
     }
 
+    /**
+     * 构造
+     *
+     * @return Result<T>
+     */
     public static <T> Result<T> fail() {
         return new Result<>(false, "", null);
     }
 
+    /**
+     * 构造
+     *
+     * @param exceptionEnum 自定义枚举返回值
+     * @return Result<T>
+     */
+    public static <T> Result<T> fail(ExceptionEnum exceptionEnum) {
+        return new Result<>(false, exceptionEnum.getCode(), exceptionEnum.getMessage(), null);
+    }
+
+    /**
+     * 构造
+     *
+     * @param data 返回数据
+     * @return Result<T>
+     */
     public static <T> Result<T> fail(T data) {
         return new Result<>(false, "", data);
     }
 
+    /**
+     * 构造
+     *
+     * @param message 返回消息
+     * @param data    返回数据
+     * @return Result<T>
+     */
     public static <T> Result<T> fail(String message, T data) {
         return new Result<>(false, message, data);
     }
 
+    /**
+     * 构造
+     *
+     * @param code    返回代码
+     * @param message 返回消息
+     * @param data    返回数据
+     * @return Result<T>
+     */
     public static <T> Result<T> fail(String code, String message, T data) {
         return new Result<>(false, code, message, data);
     }
