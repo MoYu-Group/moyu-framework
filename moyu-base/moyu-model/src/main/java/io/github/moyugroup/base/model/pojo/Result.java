@@ -68,35 +68,35 @@ public class Result<T> implements Serializable {
      * @return Result<T>
      */
     public static <T> Result<T> success() {
-        return new Result(true, "", null);
+        return new Result<>(true, "", null);
     }
 
     public static <T> Result<T> success(T data) {
-        return new Result(true, "", data);
+        return new Result<>(true, "", data);
     }
 
     public static <T> Result<T> success(String message, T data) {
-        return new Result(true, message, data);
+        return new Result<>(true, message, data);
     }
 
     public static <T> Result<T> success(String code, String message, T data) {
-        return new Result(true, code, message, data);
+        return new Result<>(true, code, message, data);
     }
 
     public static <T> Result<T> fail() {
-        return new Result(false, "", null);
+        return new Result<>(false, "", null);
     }
 
     public static <T> Result<T> fail(T data) {
-        return new Result(false, "", data);
+        return new Result<>(false, "", data);
     }
 
     public static <T> Result<T> fail(String message, T data) {
-        return new Result(false, message, data);
+        return new Result<>(false, message, data);
     }
 
     public static <T> Result<T> fail(String code, String message, T data) {
-        return new Result(false, code, message, data);
+        return new Result<>(false, code, message, data);
     }
 }
 
