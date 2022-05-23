@@ -1,6 +1,7 @@
 package io.github.moyugroup.controller;
 
 import cn.hutool.json.JSONObject;
+import io.github.moyugroup.base.model.pojo.PageInfo;
 import io.github.moyugroup.base.model.pojo.Result;
 import io.github.moyugroup.enums.ErrorCodeEnum;
 import lombok.extern.slf4j.Slf4j;
@@ -35,6 +36,16 @@ public class DemoController {
     @GetMapping("getError")
     public Result<HashMap<String, Object>> getError() {
         return Result.fail(ErrorCodeEnum.REQUEST_ERROR);
+    }
+
+    @GetMapping("page")
+    public Result<?> getPage() {
+        PageInfo<Object> pageInfo = new PageInfo<>();
+        pageInfo.setCurrentPage(1);
+        pageInfo.setPageSize(10);
+        pageInfo.setTotal(99);
+        pageInfo.setList(null);
+        return Result.success(pageInfo);
     }
 
     @PostMapping("post")

@@ -110,7 +110,7 @@ public class Result<T> implements Serializable {
      * @return Result<T>
      */
     public static <T> Result<T> fail() {
-        return new Result<>(false, "", null);
+        return new Result<>(false, "400", "request error", null);
     }
 
     /**
