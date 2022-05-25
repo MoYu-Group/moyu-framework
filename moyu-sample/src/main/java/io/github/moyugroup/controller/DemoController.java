@@ -3,6 +3,7 @@ package io.github.moyugroup.controller;
 import cn.hutool.json.JSONObject;
 import io.github.moyugroup.base.model.pojo.PageInfo;
 import io.github.moyugroup.base.model.pojo.Result;
+import io.github.moyugroup.base.util.UUIDUtil;
 import io.github.moyugroup.enums.ErrorCodeEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -62,5 +63,10 @@ public class DemoController {
             map.put("file", file.getName());
         }
         return map;
+    }
+
+    @GetMapping("getUUID")
+    public Result<Long> getUUID() {
+        return Result.success(UUIDUtil.generateId());
     }
 }

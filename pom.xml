@@ -36,6 +36,7 @@
         <guava.version>31.1-jre</guava.version>
         <hutool-all.version>5.8.0</hutool-all.version>
         <aspectjweaver.version>1.9.9.1</aspectjweaver.version>
+        <dozer-core.version>6.5.2</dozer-core.version>
     </properties>
 
     <!-- 统一依赖版本管理 -->
@@ -100,6 +101,12 @@
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool-all.version}</version>
+            </dependency>
+            <!-- dozer-core -->
+            <dependency>
+                <groupId>com.github.dozermapper</groupId>
+                <artifactId>dozer-core</artifactId>
+                <version>${dozer-core.version}</version>
             </dependency>
             <!-- aspectjweaver 切点表达式支持 -->
             <dependency>
