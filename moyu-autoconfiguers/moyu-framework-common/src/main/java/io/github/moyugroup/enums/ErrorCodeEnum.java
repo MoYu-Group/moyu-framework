@@ -10,6 +10,10 @@ import io.github.moyugroup.base.model.enums.ExceptionEnum;
 public enum ErrorCodeEnum implements ExceptionEnum {
 
     /**
+     * 全局错误
+     */
+    APPLICATION_ERROR("-99", "系统繁忙"),
+    /**
      * 请求成功
      */
     SUCCESS("200", "success"),

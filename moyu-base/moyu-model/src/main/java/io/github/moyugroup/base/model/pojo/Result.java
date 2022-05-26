@@ -155,5 +155,16 @@ public class Result<T> implements Serializable {
     public static <T> Result<T> fail(String code, String message, T data) {
         return new Result<>(false, code, message, data);
     }
+
+    /**
+     * 构造
+     *
+     * @param code    返回代码
+     * @param message 返回消息
+     * @return Result<T>
+     */
+    public static <T> Result<T> error(String code, String message) {
+        return new Result<>(false, code, message, null);
+    }
 }
 

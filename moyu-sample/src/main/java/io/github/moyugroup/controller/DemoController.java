@@ -5,6 +5,7 @@ import io.github.moyugroup.base.model.pojo.PageInfo;
 import io.github.moyugroup.base.model.pojo.Result;
 import io.github.moyugroup.base.util.UUIDUtil;
 import io.github.moyugroup.enums.ErrorCodeEnum;
+import io.github.moyugroup.exception.BizException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -68,5 +69,10 @@ public class DemoController {
     @GetMapping("getUUID")
     public Result<Long> getUUID() {
         return Result.success(UUIDUtil.generateId());
+    }
+
+    @GetMapping("exception")
+    public Result<?> exception() {
+        throw new BizException(ErrorCodeEnum.REQUEST_ERROR);
     }
 }
