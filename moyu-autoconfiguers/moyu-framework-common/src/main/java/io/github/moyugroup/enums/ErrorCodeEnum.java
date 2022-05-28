@@ -2,6 +2,8 @@ package io.github.moyugroup.enums;
 
 import io.github.moyugroup.base.model.enums.ExceptionEnum;
 
+import java.util.Objects;
+
 /**
  * 通用错误码定义
  * <p>
@@ -49,15 +51,31 @@ public enum ErrorCodeEnum implements ExceptionEnum {
     /**
      * 异常编码
      */
-    private String code;
+    private final String code;
     /**
      * 异常消息
      */
-    private String message;
+    private final String message;
 
     ErrorCodeEnum(String code, String message) {
         this.code = code;
         this.message = message;
+    }
+
+    /**
+     * 根据 code 获取 message
+     *
+     * @param code ErrorCodeEnum.code
+     * @return message
+     */
+    public static String getMessageByCode(String code) {
+        ErrorCodeEnum[] values = ErrorCodeEnum.values();
+        for (ErrorCodeEnum value : values) {
+            if (Objects.equals(value.getCode(), code)) {
+                return value.getMessage();
+            }
+        }
+        return null;
     }
 
     /**

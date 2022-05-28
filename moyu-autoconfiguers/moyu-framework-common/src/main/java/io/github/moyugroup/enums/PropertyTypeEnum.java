@@ -27,11 +27,11 @@ public enum PropertyTypeEnum {
     /**
      * 配置文件扩展名
      */
-    private String fileExtension;
+    private final String fileExtension;
     /**
      * 配置文件加载器
      */
-    private PropertySourceLoader propertySourceLoader;
+    private final PropertySourceLoader propertySourceLoader;
 
     PropertyTypeEnum(String fileExtension, PropertySourceLoader propertySourceLoader) {
         this.fileExtension = fileExtension;
