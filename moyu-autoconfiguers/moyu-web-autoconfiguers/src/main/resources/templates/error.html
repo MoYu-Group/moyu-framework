@@ -109,8 +109,8 @@
 <div class="box">
     <h2><b th:text="${status}"></b> - <span th:text="${error}"></span></h2>
     <p class="main"><span th:text="${message}"></span></p>
-    <p>time: <span th:text="${timestamp}"></span></p>
-    <pre>path: <span th:text="${path}"></span></pre>
+    <p>path: <span th:text="${path}"></span></p>
+    <pre>time: <span th:text="${#dates.format(timestamp, 'yyyy-MM-dd HH:mm:ss')}"></span></pre>
 </div>
 <p class="foot">Powered By <a href="https://github.com/MoYu-Group" style="TEXT-DECORATION: none"><b>MoYu-Group</b></a>
 </p>

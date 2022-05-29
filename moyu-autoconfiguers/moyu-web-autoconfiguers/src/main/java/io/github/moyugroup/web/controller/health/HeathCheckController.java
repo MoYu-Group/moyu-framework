@@ -1,4 +1,4 @@
-package io.github.moyugroup.web.health.conntroller;
+package io.github.moyugroup.web.controller.health;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
