@@ -6,8 +6,10 @@ import io.github.moyugroup.base.model.pojo.Result;
 import io.github.moyugroup.base.util.UUIDUtil;
 import io.github.moyugroup.enums.ErrorCodeEnum;
 import io.github.moyugroup.exception.BizException;
+import io.github.moyugroup.pojo.vo.ParamVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -74,5 +76,10 @@ public class DemoController {
     @GetMapping("exception")
     public Result<?> exception() {
         throw new BizException(ErrorCodeEnum.REQUEST_ERROR);
+    }
+
+    @PostMapping("param")
+    public Result<?> param(@RequestBody @Validated ParamVO paramVO) {
+        return Result.success(paramVO);
     }
 }

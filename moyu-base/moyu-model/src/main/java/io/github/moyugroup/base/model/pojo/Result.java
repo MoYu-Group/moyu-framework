@@ -166,5 +166,15 @@ public class Result<T> implements Serializable {
     public static <T> Result<T> error(String code, String message) {
         return new Result<>(false, code, message, null);
     }
+
+    /**
+     * 构造
+     *
+     * @param exceptionEnum 自定义枚举返回值
+     * @return Result<T>
+     */
+    public static <T> Result<T> error(ExceptionEnum exceptionEnum) {
+        return new Result<>(false, exceptionEnum.getCode(), exceptionEnum.getMessage(), null);
+    }
 }
 

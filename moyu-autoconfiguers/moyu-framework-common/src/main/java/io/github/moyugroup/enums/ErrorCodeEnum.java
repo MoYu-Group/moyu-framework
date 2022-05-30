@@ -36,6 +36,10 @@ public enum ErrorCodeEnum implements ExceptionEnum {
      */
     REQUEST_SERVICE_NOT_FOUND("404", "service not found"),
     /**
+     * 不允许使用该方法
+     */
+    REQUEST_METHOD_NOT_ALLOWED("405", "method not allowed"),
+    /**
      * 请求参数错误
      */
     REQUEST_PARAM_ERROR("460", "request parameter error"),

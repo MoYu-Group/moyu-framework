@@ -5,13 +5,20 @@ import io.github.moyugroup.enums.ErrorCodeEnum;
 import io.github.moyugroup.exception.BizException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.FieldError;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 /**
  * 全局统一异常处理，进入Controller层的异常，会在此进行统一处理
- * 在应用中可以重写此类来进行自己的异常处理，只需要在重写的类上加上 @RestControllerAdvice 注解即可
+ * 在应用中可以继承此类进行进行异常处理扩展，只需要在自定义类上加上 @RestControllerAdvice 注解即可
  * <p>
  * Created by fanfan on 2022/05/26.
  */
@@ -33,6 +40,33 @@ public class GlobalExceptionHandler {
     }
 
     /**
+     * 方法不允许 异常
+     *
+     * @param ex HttpRequestMethodNotSupportedException
+     * @return 异常信息
+     */
+    @ExceptionHandler({HttpRequestMethodNotSupportedException.class})
+    public Result<?> handlerHttpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException ex) {
+        log.error("encounter error|HttpRequestMethodNotSupportedException|message={}", ex.getMessage());
+        return Result.error(ErrorCodeEnum.REQUEST_METHOD_NOT_ALLOWED.getCode(), ex.getMessage());
+    }
+
+    /**
+     * 参数异常
+     * Validated 参数校验异常
+     *
+     * @param ex Method Args Exception
+     * @return 异常信息
+     */
+    @ExceptionHandler({MethodArgumentNotValidException.class})
+    public Result<?> handlerMethodArgsException(MethodArgumentNotValidException ex) {
+        List<FieldError> fieldErrors = ex.getFieldErrors();
+        String message = fieldErrors.stream().flatMap(fieldError -> Stream.of(fieldError.getField() + ":" + fieldError.getDefaultMessage())).collect(Collectors.joining(";"));
+        log.warn("encounter error|MethodArgumentNotValidException|message={}", message);
+        return Result.error(ErrorCodeEnum.REQUEST_PARAM_ERROR.getCode(), message);
+    }
+
+    /**
      * 其他异常，抛出系统繁忙
      *
      * @param ex Exception
@@ -41,7 +75,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler({Exception.class})
     public Result<?> handlerException(Exception ex) {
         log.error("encounter error", ex);
-        return Result.error(ErrorCodeEnum.APPLICATION_ERROR.getCode(), ErrorCodeEnum.APPLICATION_ERROR.getMessage());
+        return Result.error(ErrorCodeEnum.APPLICATION_ERROR.getCode(), ex.getMessage());
     }
 
 }
