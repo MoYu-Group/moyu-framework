@@ -66,6 +66,12 @@
                 <artifactId>moyu-web-autoconfiguers</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <!-- moyu security 安全模块 -->
+            <dependency>
+                <groupId>io.github.moyu-group</groupId>
+                <artifactId>moyu-security-autoconfigures</artifactId>
+                <version>${project.version}</version>
+            </dependency>
             <!-- io 工具包 -->
             <dependency>
                 <groupId>commons-io</groupId>

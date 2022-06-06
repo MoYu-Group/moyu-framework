@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class CustomExceptionHandler extends GlobalExceptionHandler {
 
     /**
-     * 重写方法不允许 异常
+     * 重写 不支持的方法异常
      *
      * @param ex HttpRequestMethodNotSupportedException
      * @return 异常信息

@@ -55,7 +55,7 @@ public class GlobalExceptionHandler {
      * 参数异常
      * Validated 参数校验异常
      *
-     * @param ex Method Args Exception
+     * @param ex MethodArgsException
      * @return 异常信息
      */
     @ExceptionHandler({MethodArgumentNotValidException.class})
@@ -67,7 +67,8 @@ public class GlobalExceptionHandler {
     }
 
     /**
-     * 其他异常，抛出系统繁忙
+     * 其他异常，抛出异常信息
+     * 生产环境建议对外只抛出系统繁忙
      *
      * @param ex Exception
      * @return 系统繁忙
