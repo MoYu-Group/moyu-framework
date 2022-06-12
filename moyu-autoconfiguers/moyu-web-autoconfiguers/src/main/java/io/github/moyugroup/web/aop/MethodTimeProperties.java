@@ -13,6 +13,11 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class MethodTimeProperties {
 
     /**
+     * 是否启用
+     */
+    private Boolean enabled;
+
+    /**
      * 排除的列表
      */
     private String exclusions;
