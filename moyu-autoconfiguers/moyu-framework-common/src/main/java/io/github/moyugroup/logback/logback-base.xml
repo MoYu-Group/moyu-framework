@@ -33,7 +33,7 @@
             <!--日志储存时间-->
             <maxHistory>14</maxHistory>
             <!--日志文件大小，超过会进行分割-->
-            <maxFileSize>10MB</maxFileSize>
+            <maxFileSize>100MB</maxFileSize>
             <!--日志文件总大小，超过会自动清理-->
             <totalSizeCap>10GB</totalSizeCap>
         </rollingPolicy>
@@ -54,7 +54,7 @@
             <!--日志储存时间-->
             <maxHistory>14</maxHistory>
             <!--日志文件大小，超过会进行分割-->
-            <maxFileSize>10MB</maxFileSize>
+            <maxFileSize>100MB</maxFileSize>
             <!--日志文件总大小，超过会自动清理-->
             <totalSizeCap>10GB</totalSizeCap>
         </rollingPolicy>
@@ -77,7 +77,7 @@
             <!--日志储存时间-->
             <maxHistory>14</maxHistory>
             <!--日志文件大小，超过会进行分割-->
-            <maxFileSize>10MB</maxFileSize>
+            <maxFileSize>100MB</maxFileSize>
             <!--日志文件总大小，超过会自动清理-->
             <totalSizeCap>10GB</totalSizeCap>
         </rollingPolicy>
@@ -117,12 +117,12 @@
         <appender-ref ref="BUSINESS_LOG_APPENDER"/>
     </appender>
 
-    <!--定义日志的子logger对象，用于在程序中创建对应的logger对象，使用不同的logger将日志输出到不同的文件中-->
+    <!--定义日志的子logger对象，用于在程序中创建对应的logger对象，使用不同的logger将日志输出到不同的文件中，additivity=false 即不在root中输出 -->
     <logger name="MONITOR_LOG" additivity="false">
         <appender-ref ref="OPERATION_MONITOR_APPENDER_ASYNC"/>
     </logger>
 
-    <!--定义日志的子logger对象，用于在程序中创建对应的logger对象，使用不同的logger将日志输出到不同的文件中-->
+    <!--定义日志的子logger对象，用于在程序中创建对应的logger对象，使用不同的logger将日志输出到不同的文件中，additivity=false 即不在root中输出 -->
     <logger name="BUSINESS_LOG_FILE" additivity="false">
         <appender-ref ref="BUSINESS_LOG_APPENDER_ASYNC"/>
     </logger>

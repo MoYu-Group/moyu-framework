@@ -7,12 +7,14 @@ import io.github.moyugroup.base.util.UUIDUtil;
 import io.github.moyugroup.enums.ErrorCodeEnum;
 import io.github.moyugroup.exception.BizException;
 import io.github.moyugroup.pojo.vo.ParamVO;
+import io.github.moyugroup.service.TestService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -28,6 +30,9 @@ public class DemoController {
     @Value("${spring.application.name}")
     private String name;
 
+    @Resource
+    private TestService testService;
+
     @GetMapping("get")
     public Result<HashMap<String, Object>> get(String a, String b) {
         HashMap<String, Object> map = new HashMap<>();
@@ -35,6 +40,12 @@ public class DemoController {
         map.put("b", b);
         map.put("spring.application.name", name);
         return Result.success(map);
+    }
+
+    @GetMapping("testService")
+    public Result<?> testService(String a) {
+        String hello = testService.hello(a);
+        return Result.success(hello);
     }
 
     @GetMapping("getError")

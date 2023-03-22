@@ -24,10 +24,6 @@
     body {
         background: #2980b9;
         text-align: center;
-        user-select: none;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none
     }
 
     html {
@@ -43,7 +39,7 @@
 
     p {
         line-height: 1.5em;
-        font-size: 9pt;
+        font-size: 10pt;
         color: #95a2a9;
         margin-bottom: 5px
     }
@@ -109,8 +105,8 @@
 <div class="box">
     <h2><b th:text="${status}"></b> - <span th:text="${error}"></span></h2>
     <p class="main"><span th:text="${message}"></span></p>
-    <p>path: <span th:text="${path}"></span></p>
-    <pre>time: <span th:text="${#dates.format(timestamp, 'yyyy-MM-dd HH:mm:ss')}"></span></pre>
+    <p>Path: <span th:text="${path}"></span></p>
+    <pre>Time: <span th:text="${#dates.format(timestamp, 'yyyy-MM-dd HH:mm:ss')}"></span></pre>
 </div>
 <p class="foot">Powered By <a href="https://github.com/MoYu-Group" style="TEXT-DECORATION: none"><b>MoYu-Group</b></a>
 </p>
