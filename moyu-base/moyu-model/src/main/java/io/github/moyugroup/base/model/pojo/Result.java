@@ -3,6 +3,7 @@ package io.github.moyugroup.base.model.pojo;
 import io.github.moyugroup.base.model.enums.ExceptionEnum;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.io.Serializable;
 
@@ -13,6 +14,7 @@ import java.io.Serializable;
  */
 @Getter
 @Setter
+@ToString
 public class Result<T> implements Serializable {
 
     /**
