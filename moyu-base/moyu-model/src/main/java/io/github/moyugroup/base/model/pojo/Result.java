@@ -38,6 +38,11 @@ public class Result<T> implements Serializable {
     private T content;
 
     /**
+     * 日志追踪标识
+     */
+    private String traceId;
+
+    /**
      * 基本构造
      * code 默认为 0
      *

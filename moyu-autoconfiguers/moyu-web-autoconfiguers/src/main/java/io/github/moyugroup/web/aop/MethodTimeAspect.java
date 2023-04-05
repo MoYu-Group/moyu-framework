@@ -14,6 +14,7 @@ import javax.annotation.Resource;
 
 /**
  * 方法运行监控日志 切面实现
+ * 可以通过配置禁用默认实现，业务自行实现
  * <p>
  * Created by fanfan on 2022/05/21.
  */

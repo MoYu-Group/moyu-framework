@@ -48,6 +48,12 @@ public class DemoController {
         return Result.success(hello);
     }
 
+    @GetMapping("testAsyncService")
+    public Result<?> testAsyncService(String a) {
+        testService.asyncTest(a);
+        return Result.success(a);
+    }
+
     @GetMapping("getError")
     public Result<HashMap<String, Object>> getError() {
         return Result.fail(ErrorCodeEnum.REQUEST_ERROR);
