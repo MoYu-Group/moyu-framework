@@ -47,7 +47,7 @@ moyu-framework MoYu框架
 
 - SNAPSHOT 开发版本，发布在 MoYu 专属仓库中，供 MoYu 小组开发调试使用，内容持续更新
 
-> 最新版本 `0.0.1-SNAPSHOT`
+> 最新版本 `1.0.0-SNAPSHOT`
 
 - 开发版引用方式
 
@@ -75,7 +75,7 @@ moyu-framework MoYu框架
 <parent>
     <artifactId>moyu-framework</artifactId>
     <groupId>io.github.moyu-group</groupId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
 </parent>
 ```
 

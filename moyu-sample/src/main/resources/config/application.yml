@@ -9,7 +9,7 @@ moyu:
   #方法运行切面日志
   method-time:
     #是否启用
-    enabled: false
+    enabled: true
     #日志切点
     pointcut-expression: execution(* io.github.moyugroup..controller..*(..))
     #接口参数截取长度
@@ -17,7 +17,7 @@ moyu:
   # 自定义线程池配置
   thread-pool:
     core-pool-size: 2
-    disabled: true
+    disabled: false
 logging:
   #日志输出在工程相对路径下的 logs 文件夹
   file:
