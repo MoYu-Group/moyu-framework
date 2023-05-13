@@ -35,7 +35,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler({BizException.class})
     public Result<?> handlerBusinessException(BizException ex) {
-        log.error("encounter error|BusinessException|code={}|message={}", ex.getCode(), ex.getMessage());
+        log.warn("encounter error|BusinessException|code={}|message={}", ex.getCode(), ex.getMessage());
         return Result.error(ex.getCode(), ex.getMessage());
     }
 
@@ -47,7 +47,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler({HttpRequestMethodNotSupportedException.class})
     public Result<?> handlerHttpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException ex) {
-        log.error("encounter error|HttpRequestMethodNotSupportedException|message={}", ex.getMessage());
+        log.warn("encounter error|HttpRequestMethodNotSupportedException|message={}", ex.getMessage());
         return Result.error(ErrorCodeEnum.REQUEST_METHOD_NOT_ALLOWED.getCode(), ex.getMessage());
     }
 

@@ -1,9 +1,10 @@
 package io.github.moyugroup.web.aop;
 
 import cn.hutool.json.JSONUtil;
-import io.github.moyugroup.constant.CommonConstants;
-import io.github.moyugroup.util.MonitorLogUtil;
-import io.github.moyugroup.util.PropertyUtil;
+import io.github.moyugroup.base.model.enums.ExceptionLevel;
+import io.github.moyugroup.enums.ErrorCodeEnum;
+import io.github.moyugroup.exception.BizException;
+import io.github.moyugroup.util.LogUtil;
 import io.github.moyugroup.web.util.WebUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.aopalliance.intercept.MethodInterceptor;
@@ -78,47 +79,47 @@ public class MethodTimeAopInterceptor implements MethodInterceptor {
      * @param clock      方法执行计时器
      */
     private void methodTimeLog(MethodInvocation invocation, StopWatch clock, Object result, Boolean flag, Exception exception) {
-        clock.stop();
         HttpServletRequest request = WebUtil.getRequest();
-
         String requestUri = Objects.isNull(request) ? "" : request.getRequestURI();
         if (!WebUtil.isMatched(requestUri, this.frameworkExclusions, this.methodTimeProperties.getExclusions())) {
-            String httpMethod = Objects.isNull(request) ? "" : request.getMethod();
             Method method = invocation.getMethod();
+            String httpMethod = Objects.isNull(request) ? "" : request.getMethod();
             String className = method.getDeclaringClass().getName();
             String methodName = method.getName();
             String param = "";
-            String resultStr = JSONUtil.toJsonStr(result);
-            resultStr = cutParam(resultStr);
+            String resultStr = "";
             String ip = "";
             if (Objects.nonNull(request)) {
                 param = getRequestParams(request, invocation);
                 ip = WebUtil.getIpAddress(request);
             }
+            if (Objects.nonNull(request)) {
+                resultStr = JSONUtil.toJsonStr(result);
+                resultStr = cutParam(resultStr);
+            }
+            String errCode = ErrorCodeEnum.SUCCESS.getCode();
             String errMsg = "";
+            ExceptionLevel logLevel = ExceptionLevel.INFO;
             if (Objects.nonNull(exception)) {
+                if (exception instanceof BizException bizException) {
+                    errCode = bizException.getCode();
+                    logLevel = bizException.getLevel();
+                } else {
+                    errCode = ErrorCodeEnum.APPLICATION_ERROR.getCode();
+                    logLevel = ExceptionLevel.ERROR;
+                }
                 errMsg = exception.getMessage();
             }
+            clock.stop();
 
-            // 在控制台记录方法执行日志
-            // IP地址|httpMethod|请求地址|是否成功|请求耗时|类名|方法名|参数|返回值|错误日志
-            if (flag) {
-                log.info("{}|{}|RequestUri:{}|{}|{}ms|{}|{}|Param:{}|Result:{}|{}",
-                        ip, httpMethod, requestUri, true, clock.getTime(), className, methodName, param, resultStr, errMsg);
-            } else {
-                log.error("{}|{}|RequestUri:{}|{}|{}ms|{}|{}|Param:{}|Result:{}|{}",
-                        ip, httpMethod, requestUri, false, clock.getTime(), className, methodName, param, resultStr, errMsg);
-            }
-
+            // 控制台日志埋点
+            LogUtil.printConsoleLog(log, flag, ip, httpMethod, requestUri, clock.getTime(), className, methodName, param, resultStr, errCode, errMsg, logLevel);
 
             // 监控日志埋点
-            // 如果引入了 MoYu 框架的日志配置，会单独将监控的日志输出到 ${logPath}/logs/monitor/operation.log 文件中，便于单独进行日志分析
-            // 否则会将日志输出到 console，除非自己指定 loggerName=MONITOR_LOG 的 logback 配置
-            String appName = PropertyUtil.getProperty(CommonConstants.PROJECT_NAME, String.class, null);
-            MonitorLogUtil.printLog(appName, className, methodName, flag,
-                    clock.getTime(), ip, requestUri, param, resultStr, errMsg);
+            LogUtil.printMonitorLog(className, methodName, ip, httpMethod, requestUri, flag, clock.getTime(), param, resultStr, errCode, errMsg, logLevel);
         }
     }
+
 
     /**
      * 解析需要记录的请求参数

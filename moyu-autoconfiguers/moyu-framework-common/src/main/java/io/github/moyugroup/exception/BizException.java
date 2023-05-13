@@ -1,6 +1,7 @@
 package io.github.moyugroup.exception;
 
 import io.github.moyugroup.base.model.enums.ExceptionEnum;
+import io.github.moyugroup.base.model.enums.ExceptionLevel;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,9 +19,34 @@ public class BizException extends RuntimeException {
      */
     private String code;
 
+    /**
+     * 异常等级
+     */
+    private ExceptionLevel level;
+
+    /**
+     * 带参构造，不指定异常等级
+     *
+     * @param code
+     * @param message
+     */
     public BizException(String code, String message) {
         super(message);
         this.code = code;
+        // 未指定异常等级默认为 WARN 异常
+        this.level = ExceptionLevel.WARN;
+    }
+
+    /**
+     * 带参构造，不指定异常等级
+     *
+     * @param code
+     * @param message
+     */
+    public BizException(String code, String message, ExceptionLevel level) {
+        super(message);
+        this.code = code;
+        this.level = level;
     }
 
     public BizException(String code, String message, Throwable cause) {
