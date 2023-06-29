@@ -3,8 +3,8 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>moyu-framework</artifactId>
         <groupId>io.github.moyu-group</groupId>
+        <artifactId>moyu-framework</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -15,7 +15,7 @@
     <dependencies>
         <!-- 集成web快速开发 -->
         <dependency>
-            <groupId>io.github.moyu-group</groupId>
+            <groupId>io.github.moyu-group.moyu-framework</groupId>
             <artifactId>moyu-web-autoconfiguers</artifactId>
         </dependency>
     </dependencies>

@@ -44,33 +44,33 @@
         <dependencies>
             <!-- moyu 工具包 -->
             <dependency>
-                <groupId>io.github.moyu-group</groupId>
+                <groupId>io.github.moyu-group.moyu-framework</groupId>
                 <artifactId>moyu-util</artifactId>
-                <version>${project.version}</version>
+                <version>1.0.0-SNAPSHOT</version>
             </dependency>
             <!-- moyu 公共模型 -->
             <dependency>
-                <groupId>io.github.moyu-group</groupId>
+                <groupId>io.github.moyu-group.moyu-framework</groupId>
                 <artifactId>moyu-model</artifactId>
-                <version>${project.version}</version>
+                <version>1.0.0-SNAPSHOT</version>
             </dependency>
             <!-- moyu 通用服务 -->
             <dependency>
-                <groupId>io.github.moyu-group</groupId>
+                <groupId>io.github.moyu-group.moyu-framework</groupId>
                 <artifactId>moyu-framework-common</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <!-- moyu web快速开发 -->
-            <dependency>
-                <groupId>io.github.moyu-group</groupId>
-                <artifactId>moyu-web-autoconfiguers</artifactId>
-                <version>${project.version}</version>
+                <version>1.0.0-SNAPSHOT</version>
             </dependency>
             <!-- moyu security 安全模块 -->
             <dependency>
-                <groupId>io.github.moyu-group</groupId>
+                <groupId>io.github.moyu-group.moyu-framework</groupId>
                 <artifactId>moyu-security-autoconfigures</artifactId>
-                <version>${project.version}</version>
+                <version>1.0.0-SNAPSHOT</version>
+            </dependency>
+            <!-- moyu web快速开发 -->
+            <dependency>
+                <groupId>io.github.moyu-group.moyu-framework</groupId>
+                <artifactId>moyu-web-autoconfiguers</artifactId>
+                <version>1.0.0-SNAPSHOT</version>
             </dependency>
             <!-- io 工具包 -->
             <dependency>

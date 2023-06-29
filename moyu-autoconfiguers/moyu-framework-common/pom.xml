@@ -3,8 +3,8 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
+        <groupId>io.github.moyu-group.moyu-framework</groupId>
         <artifactId>moyu-autoconfiguers</artifactId>
-        <groupId>io.github.moyu-group</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -20,12 +20,12 @@
     <dependencies>
         <!-- moyu 工具包 -->
         <dependency>
-            <groupId>io.github.moyu-group</groupId>
+            <groupId>io.github.moyu-group.moyu-framework</groupId>
             <artifactId>moyu-util</artifactId>
         </dependency>
         <!-- moyu 公共模型 -->
         <dependency>
-            <groupId>io.github.moyu-group</groupId>
+            <groupId>io.github.moyu-group.moyu-framework</groupId>
             <artifactId>moyu-model</artifactId>
         </dependency>
         <!-- spring-boot-starte -->
