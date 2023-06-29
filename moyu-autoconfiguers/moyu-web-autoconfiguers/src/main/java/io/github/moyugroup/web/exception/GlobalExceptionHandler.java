@@ -63,7 +63,7 @@ public class GlobalExceptionHandler {
         List<FieldError> fieldErrors = ex.getFieldErrors();
         String message = fieldErrors.stream().flatMap(fieldError -> Stream.of(fieldError.getField() + ":" + fieldError.getDefaultMessage())).collect(Collectors.joining(";"));
         log.warn("encounter error|MethodArgumentNotValidException|message={}", message);
-        return Result.error(ErrorCodeEnum.REQUEST_PARAM_ERROR.getCode(), message);
+        return Result.error(ErrorCodeEnum.USER_REQUEST_PARAMETER_ERROR.getCode(), message);
     }
 
     /**

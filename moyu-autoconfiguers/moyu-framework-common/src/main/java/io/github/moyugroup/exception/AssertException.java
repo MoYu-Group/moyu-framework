@@ -17,6 +17,6 @@ public class AssertException extends BizException {
     }
 
     public AssertException(ExceptionEnum exceptionEnum) {
-        super(Optional.ofNullable(exceptionEnum).orElse(ErrorCodeEnum.REQUEST_ERROR));
+        super(Optional.ofNullable(exceptionEnum).orElse(ErrorCodeEnum.USER_REQUEST_PARAMETER_ERROR));
     }
 }

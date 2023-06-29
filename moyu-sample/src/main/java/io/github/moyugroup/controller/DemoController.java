@@ -56,7 +56,7 @@ public class DemoController {
 
     @GetMapping("getError")
     public Result<HashMap<String, Object>> getError() {
-        return Result.fail(ErrorCodeEnum.REQUEST_ERROR);
+        return Result.fail(ErrorCodeEnum.USER_REQUEST_PARAMETER_ERROR);
     }
 
     @GetMapping("page")
@@ -92,7 +92,7 @@ public class DemoController {
 
     @GetMapping("exception")
     public Result<?> exception() {
-        throw new BizException(ErrorCodeEnum.REQUEST_ERROR);
+        throw new BizException(ErrorCodeEnum.USER_REQUEST_PARAMETER_ERROR);
     }
 
     @PostMapping("param")
