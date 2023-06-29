@@ -113,10 +113,10 @@ public class MethodTimeAopInterceptor implements MethodInterceptor {
             clock.stop();
 
             // 控制台日志埋点
-            LogUtil.printConsoleLog(log, flag, ip, httpMethod, requestUri, clock.getTime(), className, methodName, param, resultStr, errCode, errMsg, logLevel);
+            LogUtil.printConsoleLog(log, flag, ip, httpMethod, errCode, requestUri, clock.getTime(), className, methodName, param, resultStr, errMsg, logLevel);
 
             // 监控日志埋点
-            LogUtil.printMonitorLog(className, methodName, ip, httpMethod, requestUri, flag, clock.getTime(), param, resultStr, errCode, errMsg, logLevel);
+            LogUtil.printMonitorLog(className, methodName, ip, httpMethod, errCode, requestUri, flag, clock.getTime(), param, resultStr, errMsg, logLevel);
         }
     }
 
