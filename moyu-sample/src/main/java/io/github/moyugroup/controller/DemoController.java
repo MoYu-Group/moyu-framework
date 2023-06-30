@@ -8,13 +8,13 @@ import io.github.moyugroup.enums.ErrorCodeEnum;
 import io.github.moyugroup.exception.BizException;
 import io.github.moyugroup.pojo.vo.ParamVO;
 import io.github.moyugroup.service.TestService;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Objects;
 

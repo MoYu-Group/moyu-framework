@@ -1,5 +1,6 @@
 package io.github.moyugroup.listener;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ConfigurableBootstrapContext;
 import org.springframework.boot.SpringApplicationRunListener;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -8,10 +9,11 @@ import org.springframework.core.env.ConfigurableEnvironment;
 import java.time.Duration;
 
 /**
- * SpringApplicationRunListener的默认空实现，便于子类按需实现感兴趣的方法
+ * SpringApplicationRunListener 的默认空实现，便于子类按需实现感兴趣的方法
  * <p>
  * Created by fanfan on 2022/05/21.
  */
+@Slf4j
 public class ApplicationRunAdapter implements SpringApplicationRunListener {
 
     /**
@@ -21,7 +23,7 @@ public class ApplicationRunAdapter implements SpringApplicationRunListener {
      */
     @Override
     public void starting(ConfigurableBootstrapContext bootstrapContext) {
-
+        log.info("ApplicationRunAdapter.starting");
     }
 
     /**
@@ -32,7 +34,7 @@ public class ApplicationRunAdapter implements SpringApplicationRunListener {
      */
     @Override
     public void environmentPrepared(ConfigurableBootstrapContext bootstrapContext, ConfigurableEnvironment environment) {
-
+        log.info("ApplicationRunAdapter.environmentPrepared");
     }
 
     /**
@@ -42,7 +44,7 @@ public class ApplicationRunAdapter implements SpringApplicationRunListener {
      */
     @Override
     public void contextPrepared(ConfigurableApplicationContext context) {
-
+        log.info("ApplicationRunAdapter.contextPrepared");
     }
 
     /**
@@ -52,7 +54,7 @@ public class ApplicationRunAdapter implements SpringApplicationRunListener {
      */
     @Override
     public void contextLoaded(ConfigurableApplicationContext context) {
-
+        log.info("ApplicationRunAdapter.contextLoaded");
     }
 
     /**
@@ -63,16 +65,7 @@ public class ApplicationRunAdapter implements SpringApplicationRunListener {
      */
     @Override
     public void started(ConfigurableApplicationContext context, Duration timeTaken) {
-        started(context);
-    }
-
-    /**
-     * 上下文已刷新，应用程序已启动，但尚未调用CommandLineRunners和ApplicationRunners
-     *
-     * @param context 应用程序上下文。
-     */
-    @Override
-    public void started(ConfigurableApplicationContext context) {
+        log.info("ApplicationRunAdapter.started");
     }
 
     /**
@@ -83,17 +76,7 @@ public class ApplicationRunAdapter implements SpringApplicationRunListener {
      */
     @Override
     public void ready(ConfigurableApplicationContext context, Duration timeTaken) {
-        running(context);
-    }
-
-    /**
-     * 在 run 方法完成之前立即调用，此时应用程序上下文已刷新并且所有 CommandLineRunners 和 ApplicationRunners 已被调用
-     *
-     * @param context 应用程序上下文
-     */
-    @Override
-    public void running(ConfigurableApplicationContext context) {
-
+        log.info("ApplicationRunAdapter.ready");
     }
 
     /**
@@ -104,6 +87,6 @@ public class ApplicationRunAdapter implements SpringApplicationRunListener {
      */
     @Override
     public void failed(ConfigurableApplicationContext context, Throwable exception) {
-
+        log.info("ApplicationRunAdapter.failed");
     }
 }

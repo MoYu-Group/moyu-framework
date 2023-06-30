@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.10</version>
+        <version>3.1.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -29,14 +29,13 @@
         <java.version>17</java.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <commons-io.version>2.11.0</commons-io.version>
-        <commons-validator.version>7.0.4.Final</commons-validator.version>
-        <lombok.version>1.18.24</lombok.version>
+        <commons-io.version>2.13.0</commons-io.version>
+        <lombok.version>1.18.28</lombok.version>
         <commons-lang.version>2.6</commons-lang.version>
-        <guava.version>31.1-jre</guava.version>
+        <guava.version>32.0.1-jre</guava.version>
         <hutool-all.version>5.8.20</hutool-all.version>
-        <aspectjweaver.version>1.9.9.1</aspectjweaver.version>
-      <org.mapstruct.version>1.5.1.Final</org.mapstruct.version>
+        <aspectjweaver.version>1.9.19</aspectjweaver.version>
+        <org.mapstruct.version>1.5.1.Final</org.mapstruct.version>
     </properties>
 
     <!-- 统一依赖版本管理 -->
@@ -78,23 +77,11 @@
                 <artifactId>commons-io</artifactId>
                 <version>${commons-io.version}</version>
             </dependency>
-            <!-- 参数校验 -->
-            <dependency>
-                <groupId>org.hibernate.validator</groupId>
-                <artifactId>hibernate-validator</artifactId>
-                <version>${hibernate-validator.version}</version>
-            </dependency>
             <!-- lombok -->
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
-            </dependency>
-            <!-- commons-lang -->
-            <dependency>
-                <groupId>commons-lang</groupId>
-                <artifactId>commons-lang</artifactId>
-                <version>${commons-lang.version}</version>
             </dependency>
             <!-- google-guava -->
             <dependency>
@@ -114,7 +101,6 @@
                 <artifactId>aspectjweaver</artifactId>
                 <version>${aspectjweaver.version}</version>
             </dependency>
-
         </dependencies>
     </dependencyManagement>
 

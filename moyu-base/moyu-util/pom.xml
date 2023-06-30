@@ -20,22 +20,17 @@
     </properties>
 
     <dependencies>
-        <!-- commons-lang3 -->
+        <!-- commons-lang3 版本由 springboot 控制-->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-        </dependency>
-        <!-- commons-lang -->
-        <dependency>
-            <groupId>commons-lang</groupId>
-            <artifactId>commons-lang</artifactId>
         </dependency>
         <!-- io 工具包 -->
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
         </dependency>
-        <!-- 编码解码工具包 -->
+        <!-- 编码解码工具包 版本由 springboot 控制-->
         <dependency>
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
