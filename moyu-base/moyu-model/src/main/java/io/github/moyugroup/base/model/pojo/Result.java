@@ -23,9 +23,9 @@ public class Result<T> implements Serializable {
     private boolean success;
 
     /**
-     * 业务处理状态代码
+     * 业务处理成功状态代码
      */
-    private String code = "0";
+    private String code = "00000";
 
     /**
      * 业务处理状态附加信息，如错误信息
