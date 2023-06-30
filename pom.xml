@@ -34,7 +34,7 @@
         <lombok.version>1.18.24</lombok.version>
         <commons-lang.version>2.6</commons-lang.version>
         <guava.version>31.1-jre</guava.version>
-        <hutool-all.version>5.8.16</hutool-all.version>
+        <hutool-all.version>5.8.20</hutool-all.version>
         <aspectjweaver.version>1.9.9.1</aspectjweaver.version>
       <org.mapstruct.version>1.5.1.Final</org.mapstruct.version>
     </properties>
