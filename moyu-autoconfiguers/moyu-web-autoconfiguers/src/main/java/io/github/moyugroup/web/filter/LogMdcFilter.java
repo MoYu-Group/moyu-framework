@@ -43,6 +43,8 @@ public class LogMdcFilter implements Filter {
         // MDC 添加 TraceId
         MDC.put(TraceIdMdcUtil.TRACE_ID, traceId);
         try {
+            // servletRequest 添加 traceId
+            servletRequest.setAttribute(TraceIdMdcUtil.TRACE_ID, traceId);
             // 在响应头添加 TraceId
             resp.addHeader(TraceIdMdcUtil.TRACE_ID, traceId);
             filterChain.doFilter(servletRequest, servletResponse);

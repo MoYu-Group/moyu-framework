@@ -57,7 +57,7 @@ public class Result<T> implements Serializable {
     }
 
     /**
-     * 全参构造
+     * 构造
      *
      * @param success 是否成功
      * @param code    返回代码
@@ -67,6 +67,21 @@ public class Result<T> implements Serializable {
     public Result(boolean success, String code, String message, T content) {
         this(success, message, content);
         this.code = code;
+    }
+
+    /**
+     * 全参构造
+     *
+     * @param success 是否成功
+     * @param code    返回代码
+     * @param message 返回消息
+     * @param content 返回数据
+     * @param traceId 返回数据
+     */
+    public Result(boolean success, String code, String message, T content, String traceId) {
+        this(success, message, content);
+        this.code = code;
+        this.traceId = traceId;
     }
 
     /**
