@@ -57,11 +57,13 @@ public class BizException extends RuntimeException {
     public BizException(ExceptionEnum exceptionEnum) {
         super(exceptionEnum.getMessage());
         this.code = exceptionEnum.getCode();
+        this.level = exceptionEnum.getLevel();
     }
 
     public BizException(ExceptionEnum exceptionEnum, Throwable cause) {
         super(exceptionEnum.getMessage(), cause);
         this.code = exceptionEnum.getCode();
+        this.level = exceptionEnum.getLevel();
     }
 
 }
