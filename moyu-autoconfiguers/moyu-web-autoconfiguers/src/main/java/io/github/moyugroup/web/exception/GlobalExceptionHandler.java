@@ -5,6 +5,7 @@ import io.github.moyugroup.enums.ErrorCodeEnum;
 import io.github.moyugroup.exception.BizException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -64,6 +65,18 @@ public class GlobalExceptionHandler {
         String message = fieldErrors.stream().flatMap(fieldError -> Stream.of(fieldError.getField() + ":" + fieldError.getDefaultMessage())).collect(Collectors.joining(";"));
         log.warn("encounter error|MethodArgumentNotValidException|message={}", message);
         return Result.error(ErrorCodeEnum.USER_REQUEST_PARAMETER_ERROR.getCode(), message);
+    }
+
+    /**
+     * HTTP请求参数转换异常
+     *
+     * @param ex HttpMessageNotReadableException
+     * @return 异常信息
+     */
+    @ExceptionHandler({HttpMessageNotReadableException.class})
+    public Result<?> handlerMethodArgsException(HttpMessageNotReadableException ex) {
+        log.warn("encounter error|HttpMessageNotReadableException|message={}", ex.getMessage());
+        return Result.error(ErrorCodeEnum.USER_REQUEST_PARAMETER_ERROR.getCode(), "HTTP请求参数转换异常");
     }
 
     /**
