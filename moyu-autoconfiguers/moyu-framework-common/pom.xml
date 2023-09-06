@@ -45,8 +45,11 @@
             <!-- 跳过编译，只在运行时参与 -->
             <scope>runtime</scope>
         </dependency>
-
-
+        <!-- 自定义配置支持自动提示 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
