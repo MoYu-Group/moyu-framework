@@ -36,7 +36,7 @@ public class ErrorPageController extends BasicErrorController {
     }
 
     /**
-     * 页面异常不作处理
+     * 页面异常模型渲染
      *
      * @param request
      * @param response
@@ -44,7 +44,36 @@ public class ErrorPageController extends BasicErrorController {
      */
     @Override
     public ModelAndView errorHtml(HttpServletRequest request, HttpServletResponse response) {
-        return super.errorHtml(request, response);
+        ModelAndView modelAndView = super.errorHtml(request, response);
+        return fillExceptionMessage(request, modelAndView);
+    }
+
+    /**
+     * 填充请求异常信息到视图中
+     *
+     * @param request
+     * @param modelAndView
+     * @return
+     */
+    private ModelAndView fillExceptionMessage(HttpServletRequest request, ModelAndView modelAndView) {
+        String requestExceptionMessage = getRequestException(request);
+        Map<String, Object> model = modelAndView.getModel();
+        model.put("message", requestExceptionMessage);
+        return new ModelAndView(modelAndView.getViewName(), model, modelAndView.getStatus());
+    }
+
+    /**
+     * 获取请求异常信息
+     *
+     * @param request
+     * @return
+     */
+    private String getRequestException(HttpServletRequest request) {
+        Object exception = request.getAttribute("jakarta.servlet.error.exception");
+        if (Objects.nonNull(exception) && exception instanceof Exception ex) {
+            return ex.getMessage();
+        }
+        return null;
     }
 
     /**
