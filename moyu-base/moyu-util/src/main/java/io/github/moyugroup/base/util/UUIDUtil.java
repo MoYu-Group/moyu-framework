@@ -1,5 +1,6 @@
 package io.github.moyugroup.base.util;
 
+import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomUtils;
@@ -14,6 +15,7 @@ import java.net.UnknownHostException;
  * <pre>
  * 当前前端js支持的number类型的最大值为2的53次方，为9007199254740992。如果超过这个值，那么js会出现不精确的问题，故只生成53位的ID。
  * 使用 Snowflake 算法生成的 53 位 long 类型的 ID，结构如下:
+ * 1位标识 - 39位时间戳 - 5位机器ID - 8位序列号 = 53位
  * 0 - 0000000000 0000000000 0000000000 000000000 - 00000 - 00000000
  * 1) 01 位标识，由于 long 在 Java 中是有符号的，最高位是符号位，正数是 0，负数是 1，ID 一般使用正数，所以最高位是 0
  * 2) 39 位时间截(毫秒级)，注意，时间截不是存储当前时间的时间截，而是存储时间截的差值(当前时间 - 开始时间)得到的值，
@@ -31,6 +33,37 @@ import java.net.UnknownHostException;
  */
 @Slf4j
 public class UUIDUtil {
+
+    /**
+     * 最大 ID 计算过程
+     *
+     * @param args
+     */
+    public static void main(String[] args) {
+        // 标识位
+        String firstStr = "0";
+        Long first = Long.parseLong(firstStr, 2);
+        System.out.println(StrUtil.format("{}位标识位，设置为:{}", firstStr.length(), first));
+        // 时间戳
+        String timeStr = "111111111111111111111111111111111111111";
+        long timestamp = Long.parseLong(timeStr, 2);
+        System.out.println(StrUtil.format("{}位时间戳，最大值:{}毫秒，约{}年", timeStr.length(), timestamp, timestamp / (1000.0 * 60 * 60 * 24 * 365)));
+        // 机器位
+        String wordIdStr = "11111";
+        long workId = Long.parseLong(wordIdStr, 2);
+        System.out.println(StrUtil.format("{}位机器号，支持最大机器数量:{}", wordIdStr.length(), workId + 1));
+        // 序列
+        String inxStr = "11111111";
+        long inx = Long.parseLong(inxStr, 2);
+        System.out.println(StrUtil.format("{}位序列，每毫秒生成:{}个ID，每秒生成:{}个ID", inxStr.length(), inx + 1, (inx + 1) * 1000));
+        // 标识位 + 时间戳 + 机器位 + 序列
+        String idStr = firstStr + timeStr + wordIdStr + inxStr;
+        long id = Long.parseLong(idStr, 2);
+        String binaryString = Long.toBinaryString(id);
+        System.out.println(StrUtil.format("组成的二进制:{} 共{}位", binaryString, binaryString.length()));
+        System.out.println(StrUtil.format("{} - 共{}位", Long.toString(id), Long.toString(id).length()));
+
+    }
 
     /**
      * 开始时间戳 (2021-01-01)
