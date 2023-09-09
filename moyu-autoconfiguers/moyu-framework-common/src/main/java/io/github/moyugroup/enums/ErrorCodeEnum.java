@@ -125,7 +125,7 @@ public enum ErrorCodeEnum implements ExceptionEnum {
     SMS_REMINDER_SERVICE_FAILED("C0501", "短信提醒服务失败", ExceptionLevel.ERROR),
     VOICE_ALERT_SERVICE_FAILED("C0502", "语音提醒服务失败", ExceptionLevel.ERROR),
     EMAIL_ALERT_SERVICE_FAILED("C0503", "邮件提醒服务失败", ExceptionLevel.ERROR),
-    OAUTH_SERVER_ERROR("C0600", "OAuth 登录服务出错", ExceptionLevel.ERROR),
+    OAUTH_SERVICE_ERROR("C0600", "OAuth 登录服务出错", ExceptionLevel.ERROR),
 
     ;
 
