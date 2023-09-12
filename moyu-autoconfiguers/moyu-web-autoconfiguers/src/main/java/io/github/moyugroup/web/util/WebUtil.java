@@ -1,5 +1,6 @@
 package io.github.moyugroup.web.util;
 
+import cn.hutool.json.JSONConfig;
 import cn.hutool.json.JSONUtil;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
@@ -95,7 +96,7 @@ public class WebUtil {
                         result.setTraceId((String) traceId);
                     }
                 }
-                String results = JSONUtil.toJsonStr(obj);
+                String results = JSONUtil.toJsonStr(obj, JSONConfig.create().setIgnoreNullValue(Boolean.FALSE));
 
                 response.setCharacterEncoding("UTF-8");
                 String callbackFunName = request.getParameter("callback");
