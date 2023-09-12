@@ -3,7 +3,6 @@ package io.github.moyugroup.web.exception;
 import cn.hutool.core.bean.BeanUtil;
 import io.github.moyugroup.base.model.pojo.Result;
 import io.github.moyugroup.web.util.TraceIdMdcUtil;
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -85,8 +84,7 @@ public class ErrorPageController extends BasicErrorController {
      */
     @Override
     public ResponseEntity<Map<String, Object>> error(HttpServletRequest request) {
-        HttpStatus status = getStatus(request);
-        Object traceId = request.getAttribute(TraceIdMdcUtil.TRACE_ID);
+        HttpStatus status = super.getStatus(request);
         Result<?> result = new Result<>(false, String.valueOf(status.value()), status.getReasonPhrase(), null);
         setTraceId(result, request);
         Map<String, Object> body = BeanUtil.beanToMap(result);
@@ -100,15 +98,4 @@ public class ErrorPageController extends BasicErrorController {
         }
     }
 
-    protected HttpStatus getStatus(HttpServletRequest request) {
-        Integer statusCode = (Integer) request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
-        if (statusCode == null) {
-            return HttpStatus.INTERNAL_SERVER_ERROR;
-        }
-        try {
-            return HttpStatus.valueOf(statusCode);
-        } catch (Exception ex) {
-            return HttpStatus.INTERNAL_SERVER_ERROR;
-        }
-    }
 }

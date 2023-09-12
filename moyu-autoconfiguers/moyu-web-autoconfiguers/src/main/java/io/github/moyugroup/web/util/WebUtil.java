@@ -3,6 +3,7 @@ package io.github.moyugroup.web.util;
 import cn.hutool.json.JSONUtil;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
+import io.github.moyugroup.base.model.pojo.Result;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -88,11 +89,19 @@ public class WebUtil {
                 if (response.isCommitted()) {
                     return;
                 }
+                if (obj instanceof Result<?> result) {
+                    Object traceId = request.getAttribute(TraceIdMdcUtil.TRACE_ID);
+                    if (Objects.nonNull(traceId)) {
+                        result.setTraceId((String) traceId);
+                    }
+                }
                 String results = JSONUtil.toJsonStr(obj);
 
+                response.setCharacterEncoding("UTF-8");
                 String callbackFunName = request.getParameter("callback");
                 if (StringUtils.isBlank(callbackFunName)) {
-                    response.setContentType("application/json;charset=utf-8");
+                    response.setContentType("application/json;charset=UTF-8");
+                    response.setStatus(HttpServletResponse.SC_OK);
                     //没有callback直接输出json格式结果
                     response.getWriter().println(results);
                 } else {
