@@ -70,6 +70,12 @@
                 <artifactId>moyu-web-autoconfiguers</artifactId>
                 <version>1.0.0-SNAPSHOT</version>
             </dependency>
+            <!-- moyu spring-data-jpa 快速集成 -->
+            <dependency>
+                <groupId>io.github.moyu-group.moyu-framework</groupId>
+                <artifactId>moyu-spring-data-jpa-autoconfigures</artifactId>
+                <version>1.0.0-SNAPSHOT</version>
+            </dependency>
             <!-- io 工具包 -->
             <dependency>
                 <groupId>commons-io</groupId>
