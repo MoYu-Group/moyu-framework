@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.2</version>
+        <version>3.2.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -29,13 +29,12 @@
         <java.version>17</java.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <commons-io.version>2.13.0</commons-io.version>
-        <lombok.version>1.18.28</lombok.version>
-        <commons-lang.version>2.6</commons-lang.version>
-        <guava.version>32.0.1-jre</guava.version>
-        <hutool-all.version>5.8.20</hutool-all.version>
-        <aspectjweaver.version>1.9.19</aspectjweaver.version>
-        <org.mapstruct.version>1.5.1.Final</org.mapstruct.version>
+        <commons-io.version>2.15.1</commons-io.version>
+        <lombok.version>1.18.30</lombok.version>
+        <guava.version>33.0.0-jre</guava.version>
+        <hutool-all.version>5.8.25</hutool-all.version>
+        <aspectjweaver.version>1.9.21</aspectjweaver.version>
+        <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
     </properties>
 
     <!-- 统一依赖版本管理 -->
@@ -100,6 +99,12 @@
                 <groupId>org.aspectj</groupId>
                 <artifactId>aspectjweaver</artifactId>
                 <version>${aspectjweaver.version}</version>
+            </dependency>
+            <!-- mapstruct -->
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${org.mapstruct.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
