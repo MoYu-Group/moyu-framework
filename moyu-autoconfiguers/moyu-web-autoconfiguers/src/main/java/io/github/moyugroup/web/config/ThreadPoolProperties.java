@@ -30,7 +30,7 @@ public class ThreadPoolProperties {
     /**
      * 缓冲队列长度
      */
-    private Integer queueCapacity = 200;
+    private Integer queueCapacity = 1000;
 
     /**
      * 空闲线程存活时间
