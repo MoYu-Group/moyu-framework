@@ -1,4 +1,4 @@
-package io.github.moyugroup.web.config;
+package io.github.moyugroup.web.config.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

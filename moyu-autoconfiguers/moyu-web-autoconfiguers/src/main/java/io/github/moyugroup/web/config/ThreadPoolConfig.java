@@ -2,6 +2,7 @@ package io.github.moyugroup.web.config;
 
 import io.github.moyugroup.constant.CommonConstants;
 import io.github.moyugroup.web.aop.AopConstants;
+import io.github.moyugroup.web.config.properties.ThreadPoolProperties;
 import io.github.moyugroup.web.decorator.MdcTaskDecorator;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;

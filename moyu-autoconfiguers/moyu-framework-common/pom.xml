@@ -28,7 +28,7 @@
             <groupId>io.github.moyu-group.moyu-framework</groupId>
             <artifactId>moyu-model</artifactId>
         </dependency>
-        <!-- spring-boot-starte -->
+        <!-- spring-boot-starter -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
@@ -50,7 +50,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
         </dependency>
-
     </dependencies>
 
 </project>
