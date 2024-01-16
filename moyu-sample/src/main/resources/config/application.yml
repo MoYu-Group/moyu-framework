@@ -18,6 +18,10 @@ moyu:
   thread-pool:
     core-pool-size: 2
     disabled: false
+  date:
+    format:
+      write-as-timestamps: false
+      date-format-pattern: yyyy-MM-dd HH:mm:ss
 logging:
   #日志输出在工程相对路径下的 logs 文件夹
   file:

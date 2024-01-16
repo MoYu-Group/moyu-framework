@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 
 /**
- * LocalDateTime 序列号输出为长整形时间戳
+ * LocalDateTime 序列化输出为长整形时间戳
  * <p>
  * Created by fanfan on 2024/01/16.
  */
