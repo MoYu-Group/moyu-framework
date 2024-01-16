@@ -9,8 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>moyu-spring-data-jpa-autoconfigures</artifactId>
-    <description>快速集成 spring-data-jpa-autoconfigures</description>
+    <artifactId>moyu-spring-data-jpa-autoconfigure</artifactId>
+    <description>快速集成 spring-data-jpa</description>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

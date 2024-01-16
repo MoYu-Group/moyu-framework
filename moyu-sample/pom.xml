@@ -16,7 +16,7 @@
         <!-- 集成web快速开发 -->
         <dependency>
             <groupId>io.github.moyu-group.moyu-framework</groupId>
-            <artifactId>moyu-web-autoconfigures</artifactId>
+            <artifactId>moyu-web-autoconfigure</artifactId>
         </dependency>
     </dependencies>
 

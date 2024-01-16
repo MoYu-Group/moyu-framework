@@ -10,8 +10,8 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>moyu-security-autoconfigures</artifactId>
-  <description>moyu-security-autoconfigures</description>
+  <artifactId>moyu-security-autoconfigure</artifactId>
+  <description>moyu-security-autoconfigure</description>
 
   <properties>
     <maven.compiler.source>17</maven.compiler.source>

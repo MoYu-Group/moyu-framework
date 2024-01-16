@@ -61,19 +61,19 @@
             <!-- moyu security 安全模块 -->
             <dependency>
                 <groupId>io.github.moyu-group.moyu-framework</groupId>
-                <artifactId>moyu-security-autoconfigures</artifactId>
+                <artifactId>moyu-security-autoconfigure</artifactId>
                 <version>1.0.0-SNAPSHOT</version>
             </dependency>
             <!-- moyu web快速开发 -->
             <dependency>
                 <groupId>io.github.moyu-group.moyu-framework</groupId>
-                <artifactId>moyu-web-autoconfigures</artifactId>
+                <artifactId>moyu-web-autoconfigure</artifactId>
                 <version>1.0.0-SNAPSHOT</version>
             </dependency>
             <!-- moyu spring-data-jpa 快速集成 -->
             <dependency>
                 <groupId>io.github.moyu-group.moyu-framework</groupId>
-                <artifactId>moyu-spring-data-jpa-autoconfigures</artifactId>
+                <artifactId>moyu-spring-data-jpa-autoconfigure</artifactId>
                 <version>1.0.0-SNAPSHOT</version>
             </dependency>
             <!-- io 工具包 -->
