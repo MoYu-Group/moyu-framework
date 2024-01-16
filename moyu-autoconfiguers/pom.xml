@@ -16,7 +16,7 @@
 
     <modules>
         <module>moyu-framework-common</module>
-        <module>moyu-web-autoconfiguers</module>
+        <module>moyu-web-autoconfigures</module>
         <module>moyu-security-autoconfigures</module>
         <module>moyu-spring-data-jpa-autoconfigures</module>
     </modules>
