@@ -1,6 +1,7 @@
 package io.github.moyugroup.web.aop;
 
 import io.github.moyugroup.constant.CommonConstants;
+import io.github.moyugroup.web.constant.FrameworkConstants;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.aop.aspectj.AspectJExpressionPointcutAdvisor;
@@ -20,7 +21,7 @@ import org.springframework.context.annotation.Bean;
 @Slf4j
 @AutoConfiguration
 @EnableConfigurationProperties(MethodTimeProperties.class)
-@ConditionalOnProperty(value = AopConstants.METHOD_TIME_ASPECT_ENABLED, havingValue = CommonConstants.CONDITIONAL_TRUE, matchIfMissing = true)
+@ConditionalOnProperty(value = FrameworkConstants.METHOD_TIME_ASPECT_ENABLED, havingValue = CommonConstants.CONDITIONAL_TRUE, matchIfMissing = true)
 public class MethodTimeAspect {
 
     /**

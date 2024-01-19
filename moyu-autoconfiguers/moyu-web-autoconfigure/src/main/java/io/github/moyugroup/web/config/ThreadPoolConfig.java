@@ -1,8 +1,8 @@
 package io.github.moyugroup.web.config;
 
 import io.github.moyugroup.constant.CommonConstants;
-import io.github.moyugroup.web.aop.AopConstants;
 import io.github.moyugroup.web.config.properties.ThreadPoolProperties;
+import io.github.moyugroup.web.constant.FrameworkConstants;
 import io.github.moyugroup.web.decorator.MdcTaskDecorator;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
@@ -25,7 +25,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 @EnableAsync
 @Configuration
 @EnableConfigurationProperties(ThreadPoolProperties.class)
-@ConditionalOnProperty(value = AopConstants.THREAD_POOL_DISABLED, havingValue = CommonConstants.CONDITIONAL_FALSE, matchIfMissing = true)
+@ConditionalOnProperty(value = FrameworkConstants.THREAD_POOL_DISABLED, havingValue = CommonConstants.CONDITIONAL_FALSE, matchIfMissing = true)
 public class ThreadPoolConfig {
 
     @Resource
