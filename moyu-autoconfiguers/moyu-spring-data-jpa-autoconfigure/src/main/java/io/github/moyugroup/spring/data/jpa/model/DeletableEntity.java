@@ -1,5 +1,6 @@
 package io.github.moyugroup.spring.data.jpa.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
 import lombok.AccessLevel;
@@ -19,7 +20,9 @@ import lombok.experimental.FieldDefaults;
 public class DeletableEntity extends BaseEntity {
     /**
      * 是否删除标志，默认为false
+     * 该字段不参与序列化输出
      */
+    @JsonIgnore
     @Column(nullable = false)
     Boolean isDeleted = false;
 }
