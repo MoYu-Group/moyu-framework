@@ -12,6 +12,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -77,6 +78,18 @@ public class GlobalExceptionHandler {
     public Result<?> handlerMethodArgsException(HttpMessageNotReadableException ex) {
         log.warn("encounter error|HttpMessageNotReadableException|message={}", ex.getMessage());
         return Result.error(ErrorCodeEnum.USER_REQUEST_PARAMETER_ERROR.getCode(), "HTTP请求参数转换异常");
+    }
+
+    /**
+     * 请求资源不存在异常
+     *
+     * @param ex NoResourceFoundException
+     * @return 异常信息
+     */
+    @ExceptionHandler({NoResourceFoundException.class})
+    public Result<?> handlerMethodArgsException(NoResourceFoundException ex) {
+        log.warn("encounter error|NoResourceFoundException|message={}", ex.getMessage());
+        return Result.error(ErrorCodeEnum.APPLICATION_ERROR.getCode(), ex.getMessage());
     }
 
     /**
