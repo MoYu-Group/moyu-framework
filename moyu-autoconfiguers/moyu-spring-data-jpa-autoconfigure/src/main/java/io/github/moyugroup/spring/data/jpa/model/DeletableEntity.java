@@ -8,6 +8,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
+import java.util.Objects;
+
 /**
  * 逻辑删除字段 实体
  * <p>
@@ -18,11 +20,23 @@ import lombok.experimental.FieldDefaults;
 @MappedSuperclass
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class DeletableEntity extends BaseEntity {
+
     /**
      * 是否删除标志，默认为false
      * 该字段不参与序列化输出
      */
     @JsonIgnore
     @Column(nullable = false)
-    Boolean isDeleted = false;
+    Boolean isDeleted;
+
+    /**
+     * 新增时自动赋值默认值
+     */
+    @Override
+    protected void initializeOnSave() {
+        if (Objects.isNull(isDeleted)) {
+            isDeleted = false;
+        }
+    }
+
 }

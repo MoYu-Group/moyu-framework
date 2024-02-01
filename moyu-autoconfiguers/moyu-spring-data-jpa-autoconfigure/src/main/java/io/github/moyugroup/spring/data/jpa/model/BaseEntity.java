@@ -56,10 +56,19 @@ public class BaseEntity {
     public void prePersist() {
         createTime = LocalDateTime.now();
         updateTime = LocalDateTime.now();
+        initializeOnSave();
     }
 
     @PreUpdate
     public void preUpdate() {
         updateTime = LocalDateTime.now();
     }
+
+    /**
+     * 新增时初始化的字段，可被子类重写
+     */
+    protected void initializeOnSave() {
+
+    }
+
 }
