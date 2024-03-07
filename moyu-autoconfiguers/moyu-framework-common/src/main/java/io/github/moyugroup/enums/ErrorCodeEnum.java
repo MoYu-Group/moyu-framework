@@ -42,6 +42,7 @@ public enum ErrorCodeEnum implements ExceptionEnum {
     USER_ACCOUNT_EXPIRED("A0203", "用户账户已作废", ExceptionLevel.INFO),
     WRONG_USER_PASSWORD("A0210", "用户密码错误", ExceptionLevel.INFO),
     THE_NUMBER_OF_INCORRECT_PASSWORDS_EXCEEDS_THE_LIMIT("A0211", "用户输入密码错误次数超限", ExceptionLevel.INFO),
+    WRONG_USER_ACCOUNT_OR_PASSWORD("A0215", "用户账户/密码错误", ExceptionLevel.INFO),
     USER_IDENTITY_VERIFICATION_FAILED("A0220", "用户身份校验失败", ExceptionLevel.INFO),
     USER_LOGIN_HAS_EXPIRED("A0230", "用户登录已过期", ExceptionLevel.INFO),
     ABNORMAL_ACCESS_RIGHTS("A0300", "访问权限异常", ExceptionLevel.INFO),
