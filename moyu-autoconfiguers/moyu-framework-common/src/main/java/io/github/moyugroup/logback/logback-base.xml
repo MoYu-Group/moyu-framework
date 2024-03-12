@@ -9,12 +9,15 @@
     <property name="LOG_FILE" value="${LOG_PATH}/application.log"/>
     <!--日志编码-->
     <property name="CHARSET" value="UTF-8"/>
+    <!--引入自定义日志转换器-->
+    <conversionRule conversionWord="mask"
+                    converterClass="io.github.moyugroup.logback.converter.MaskingPatternConverter"/>
     <!--控制台日志格式-->
     <property name="CONSOLE_LOG_PATTERN_MDC"
-              value="${CONSOLE_LOG_PATTERN_MDC:-%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint}%clr(%X{TraceId}|){faint}%m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
+              value="${CONSOLE_LOG_PATTERN_MDC:-%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint}%clr(%X{TraceId}|){faint}%mask%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
     <!--文件日志格式-->
     <property name="FILE_LOG_PATTERN_MDC"
-              value="${FILE_LOG_PATTERN_MDC:-%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}} ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } --- [%t] %-40.40logger{39} :%X{TraceId}|%m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
+              value="${FILE_LOG_PATTERN_MDC:-%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}} ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } --- [%t] %-40.40logger{39} :%X{TraceId}|%mask%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
 
 
     <!--控制台日志-->
