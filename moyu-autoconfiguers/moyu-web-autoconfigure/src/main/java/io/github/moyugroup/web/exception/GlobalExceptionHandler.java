@@ -63,8 +63,9 @@ public class GlobalExceptionHandler {
     @ExceptionHandler({MethodArgumentNotValidException.class})
     public Result<?> handlerMethodArgsException(MethodArgumentNotValidException ex) {
         List<FieldError> fieldErrors = ex.getFieldErrors();
-        String message = fieldErrors.stream().flatMap(fieldError -> Stream.of(fieldError.getField() + ":" + fieldError.getDefaultMessage())).collect(Collectors.joining(";"));
-        log.warn("encounter error|MethodArgumentNotValidException|message={}", message);
+        String warnMessage = fieldErrors.stream().flatMap(fieldError -> Stream.of(fieldError.getField() + ":" + fieldError.getDefaultMessage())).collect(Collectors.joining(";"));
+        log.warn("encounter error|MethodArgumentNotValidException|message={}", warnMessage);
+        String message = ErrorCodeEnum.USER_REQUEST_PARAMETER_ERROR.getMessage() + ":" + fieldErrors.stream().map(FieldError::getField).collect(Collectors.joining(","));
         return Result.error(ErrorCodeEnum.USER_REQUEST_PARAMETER_ERROR.getCode(), message);
     }
 
