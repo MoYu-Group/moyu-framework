@@ -88,9 +88,9 @@ public class GlobalExceptionHandler {
      * @return 异常信息
      */
     @ExceptionHandler({NoResourceFoundException.class})
-    public Result<?> handlerMethodArgsException(NoResourceFoundException ex) {
-        log.warn("encounter error|NoResourceFoundException|message={}", ex.getMessage());
-        return Result.error(ErrorCodeEnum.APPLICATION_ERROR.getCode(), ex.getMessage());
+    public Result<?> handlerMethodArgsException(NoResourceFoundException ex) throws NoResourceFoundException {
+        log.warn("NoResourceFoundException|{}|Path:{}|message={}", ex.getHttpMethod(), ex.getResourcePath(), ex.getMessage());
+        throw ex;
     }
 
     /**
