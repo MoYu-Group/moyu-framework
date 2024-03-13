@@ -3,6 +3,9 @@ package io.github.moyugroup.web.exception;
 import io.github.moyugroup.base.model.pojo.Result;
 import io.github.moyugroup.enums.ErrorCodeEnum;
 import io.github.moyugroup.exception.BizException;
+import io.github.moyugroup.web.util.WebUtil;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -12,8 +15,10 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
 
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -36,8 +41,21 @@ public class GlobalExceptionHandler {
      * @return 异常信息
      */
     @ExceptionHandler({BizException.class})
-    public Result<?> handlerBusinessException(BizException ex) {
-        log.warn("encounter error|BusinessException|code={}|message={}", ex.getCode(), ex.getMessage());
+    public Object handlerBusinessException(BizException ex, HttpServletRequest request, HttpServletResponse response) {
+        log.warn("encounter error|BizException|code={}|message={}", ex.getCode(), ex.getMessage());
+        // 页面异常在错误页面展示
+        if (WebUtil.isPageRequest()) {
+            ModelAndView modelAndView = new ModelAndView();
+            modelAndView.setViewName("error");
+            modelAndView.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+            modelAndView.addObject("timestamp", new Date());
+            modelAndView.addObject("status", HttpStatus.INTERNAL_SERVER_ERROR.value());
+            modelAndView.addObject("error", ex.getCode());
+            modelAndView.addObject("path", request.getRequestURI());
+            modelAndView.addObject("message", ex.getMessage());
+            return modelAndView;
+        }
+        // 非页面异常返回 json
         return Result.error(ex.getCode(), ex.getMessage());
     }
 

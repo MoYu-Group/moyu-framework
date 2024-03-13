@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.http.MediaType;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -75,6 +76,20 @@ public class WebUtil {
     public static boolean isAjaxRequest() {
         HttpServletRequest request = getRequest();
         return request != null && XML_HTTP_REQUEST.equals(request.getHeader(X_REQUESTED_WIDTH));
+    }
+
+    /**
+     * 判断是否是页面请求
+     *
+     * @return
+     */
+    public static boolean isPageRequest() {
+        HttpServletRequest request = getRequest();
+        if (Objects.isNull(request)) {
+            return false;
+        }
+        String acceptHeader = request.getHeader("Accept");
+        return acceptHeader != null && acceptHeader.contains(MediaType.TEXT_HTML_VALUE);
     }
 
     /**

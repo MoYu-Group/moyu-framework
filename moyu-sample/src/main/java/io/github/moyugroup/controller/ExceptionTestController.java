@@ -1,6 +1,8 @@
 package io.github.moyugroup.controller;
 
 import io.github.moyugroup.base.model.pojo.Result;
+import io.github.moyugroup.enums.ErrorCodeEnum;
+import io.github.moyugroup.exception.BizException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 public class ExceptionTestController {
+
+    @GetMapping("testBizException")
+    public Result<?> testBizException() {
+        throw new BizException(ErrorCodeEnum.APPLICATION_ERROR);
+    }
 
     @GetMapping("testNullException")
     public Result<?> testNullException() {
