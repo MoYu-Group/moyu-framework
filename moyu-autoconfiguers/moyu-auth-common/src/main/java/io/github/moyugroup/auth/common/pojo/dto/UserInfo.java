@@ -1,6 +1,7 @@
 package io.github.moyugroup.auth.common.pojo.dto;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 /**
  * 用户信息
@@ -8,6 +9,7 @@ import lombok.Data;
  * Created by fanfan on 2024/03/13.
  */
 @Data
+@Accessors(chain = true)
 public class UserInfo {
     /**
      * 租户ID
@@ -26,6 +28,10 @@ public class UserInfo {
      */
     String username;
     /**
+     * 昵称
+     */
+    String nickname;
+    /**
      * 手机号
      */
     String mobile;
@@ -33,9 +39,5 @@ public class UserInfo {
      * 邮箱
      */
     String email;
-    /**
-     * 用户全名
-     */
-    String fullName;
 
 }
