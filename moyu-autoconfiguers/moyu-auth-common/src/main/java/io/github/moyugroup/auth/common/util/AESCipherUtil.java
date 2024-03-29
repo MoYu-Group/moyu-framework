@@ -105,12 +105,17 @@ public class AESCipherUtil {
         try {
             cipher = Cipher.getInstance(AES_GCM_NO_PADDING);
             cipher.init(Cipher.DECRYPT_MODE, secretKeySpec, gcmParameterSpec);
-            // 解密
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        // 解密
+        try {
             byte[] decryptData = cipher.doFinal(encryptData);
             // 转为字符串返回
             return new String(decryptData);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            log.error("AES解密失败 errorMsg:{}", e.getMessage());
+            return null;
         }
     }
 
