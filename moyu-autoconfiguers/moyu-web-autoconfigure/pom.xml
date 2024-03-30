@@ -9,6 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>io.github.moyu-group.moyu-framework.moyu-autoconfiguers</groupId>
     <artifactId>moyu-web-autoconfigure</artifactId>
     <description>快速集成web工程</description>
 
@@ -20,7 +21,7 @@
     <dependencies>
         <!-- moyu 通用服务 -->
         <dependency>
-            <groupId>io.github.moyu-group.moyu-framework</groupId>
+            <groupId>io.github.moyu-group.moyu-framework.moyu-autoconfiguers</groupId>
             <artifactId>moyu-framework-common</artifactId>
         </dependency>
         <!-- spring-boot-web -->
@@ -32,12 +33,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
-        <!-- 配置类自动生成元数据 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
         </dependency>
 
     </dependencies>

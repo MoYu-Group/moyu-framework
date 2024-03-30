@@ -9,8 +9,9 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
+    <groupId>io.github.moyu-group.moyu-framework.moyu-autoconfiguers</groupId>
     <artifactId>moyu-auth-common</artifactId>
-    <description>本工程用于定义摸鱼登录的公共服务和依赖</description>
+    <description>本工程用于定义摸鱼登录系统的公共服务和依赖</description>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

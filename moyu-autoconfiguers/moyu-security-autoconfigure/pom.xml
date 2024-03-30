@@ -10,6 +10,7 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
+  <groupId>io.github.moyu-group.moyu-framework.moyu-autoconfiguers</groupId>
   <artifactId>moyu-security-autoconfigure</artifactId>
   <description>moyu-security-autoconfigure</description>
 

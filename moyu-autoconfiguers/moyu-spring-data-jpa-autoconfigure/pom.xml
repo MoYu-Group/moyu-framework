@@ -9,6 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>io.github.moyu-group.moyu-framework.moyu-autoconfiguers</groupId>
     <artifactId>moyu-spring-data-jpa-autoconfigure</artifactId>
     <description>快速集成 spring-data-jpa</description>
 
@@ -26,7 +27,7 @@
         </dependency>
         <!-- moyu 工具包 -->
         <dependency>
-            <groupId>io.github.moyu-group.moyu-framework</groupId>
+            <groupId>io.github.moyu-group.moyu-framework.moyu-base</groupId>
             <artifactId>moyu-util</artifactId>
         </dependency>
     </dependencies>

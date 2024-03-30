@@ -41,46 +41,46 @@
     <!-- 统一依赖版本管理 -->
     <dependencyManagement>
         <dependencies>
+            <!-- moyu 公共模型 -->
+            <dependency>
+                <groupId>io.github.moyu-group.moyu-framework.moyu-base</groupId>
+                <artifactId>moyu-model</artifactId>
+                <version>1.0.0-SNAPSHOT</version>
+            </dependency>
             <!-- moyu 工具包 -->
             <dependency>
-                <groupId>io.github.moyu-group.moyu-framework</groupId>
+                <groupId>io.github.moyu-group.moyu-framework.moyu-base</groupId>
                 <artifactId>moyu-util</artifactId>
                 <version>1.0.0-SNAPSHOT</version>
             </dependency>
-            <!-- moyu 公共模型 -->
+            <!-- moyu 登录通用服务 -->
             <dependency>
-                <groupId>io.github.moyu-group.moyu-framework</groupId>
-                <artifactId>moyu-model</artifactId>
+                <groupId>io.github.moyu-group.moyu-framework.moyu-autoconfiguers</groupId>
+                <artifactId>moyu-auth-common</artifactId>
                 <version>1.0.0-SNAPSHOT</version>
             </dependency>
             <!-- moyu 通用服务 -->
             <dependency>
-                <groupId>io.github.moyu-group.moyu-framework</groupId>
+                <groupId>io.github.moyu-group.moyu-framework.moyu-autoconfiguers</groupId>
                 <artifactId>moyu-framework-common</artifactId>
-                <version>1.0.0-SNAPSHOT</version>
-            </dependency>
-            <!-- moyu-auth 通用服务 -->
-            <dependency>
-                <groupId>io.github.moyu-group.moyu-framework</groupId>
-                <artifactId>moyu-auth-common</artifactId>
                 <version>1.0.0-SNAPSHOT</version>
             </dependency>
             <!-- moyu security 安全模块 -->
             <dependency>
-                <groupId>io.github.moyu-group.moyu-framework</groupId>
+                <groupId>io.github.moyu-group.moyu-framework.moyu-autoconfiguers</groupId>
                 <artifactId>moyu-security-autoconfigure</artifactId>
-                <version>1.0.0-SNAPSHOT</version>
-            </dependency>
-            <!-- moyu web快速开发 -->
-            <dependency>
-                <groupId>io.github.moyu-group.moyu-framework</groupId>
-                <artifactId>moyu-web-autoconfigure</artifactId>
                 <version>1.0.0-SNAPSHOT</version>
             </dependency>
             <!-- moyu spring-data-jpa 快速集成 -->
             <dependency>
-                <groupId>io.github.moyu-group.moyu-framework</groupId>
+                <groupId>io.github.moyu-group.moyu-framework.moyu-autoconfiguers</groupId>
                 <artifactId>moyu-spring-data-jpa-autoconfigure</artifactId>
+                <version>1.0.0-SNAPSHOT</version>
+            </dependency>
+            <!-- moyu web快速开发 -->
+            <dependency>
+                <groupId>io.github.moyu-group.moyu-framework.moyu-autoconfiguers</groupId>
+                <artifactId>moyu-web-autoconfigure</artifactId>
                 <version>1.0.0-SNAPSHOT</version>
             </dependency>
             <!-- io 工具包 -->

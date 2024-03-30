@@ -9,6 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>io.github.moyu-group.moyu-framework.moyu-autoconfiguers</groupId>
     <artifactId>moyu-framework-common</artifactId>
     <description>本工程用于定义可自动装配的公共服务和依赖</description>
 
@@ -20,12 +21,12 @@
     <dependencies>
         <!-- moyu 工具包 -->
         <dependency>
-            <groupId>io.github.moyu-group.moyu-framework</groupId>
+            <groupId>io.github.moyu-group.moyu-framework.moyu-base</groupId>
             <artifactId>moyu-util</artifactId>
         </dependency>
         <!-- moyu 公共模型 -->
         <dependency>
-            <groupId>io.github.moyu-group.moyu-framework</groupId>
+            <groupId>io.github.moyu-group.moyu-framework.moyu-base</groupId>
             <artifactId>moyu-model</artifactId>
         </dependency>
         <!-- spring-boot-starter -->
@@ -45,7 +46,7 @@
             <!-- 跳过编译，只在运行时参与 -->
             <scope>runtime</scope>
         </dependency>
-        <!-- 自定义配置支持自动提示 -->
+        <!-- 配置类自动生成元数据，自定义配置支持自动提示 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
