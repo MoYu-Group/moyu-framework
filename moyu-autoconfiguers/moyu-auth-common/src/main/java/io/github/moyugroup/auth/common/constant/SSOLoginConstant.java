@@ -23,6 +23,10 @@ public class SSOLoginConstant {
      */
     public final static String SSO_TOKEN = "ssoToken";
     /**
+     * 授权类型
+     */
+    public final static String GRANT_TYPE = "grantType";
+    /**
      * 默认登录页面路径
      */
     public final static String LOGIN_PAGE_PATH = "/ssoLogin.html";
@@ -34,4 +38,12 @@ public class SSOLoginConstant {
      * 默认切换租户页面路径
      */
     public final static String SWITCH_TENANT_PATH = "/switchTenant.html";
+    /**
+     * ssoToken 回调端点
+     */
+    public final static String OAUTH2_ENDPOINT = "/oauth2";
+    /**
+     * 验证 ssoToken 并获取登录用户信息端点
+     */
+    public final static String OAUTH2_GET_USER_ENDPOINT = "/oauth2/getUser";
 }
