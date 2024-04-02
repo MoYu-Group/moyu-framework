@@ -128,6 +128,8 @@ public enum ErrorCodeEnum implements ExceptionEnum {
     VOICE_ALERT_SERVICE_FAILED("C0502", "语音提醒服务失败", ExceptionLevel.ERROR),
     EMAIL_ALERT_SERVICE_FAILED("C0503", "邮件提醒服务失败", ExceptionLevel.ERROR),
     OAUTH_SERVICE_ERROR("C0600", "OAuth 登录服务出错", ExceptionLevel.ERROR),
+    SSO_LOGIN_ERROR("C0601", "SSO 登录失败", ExceptionLevel.ERROR),
+    SSO_LOGIN_PARAM_ERROR("C0602", "SSO 登录回调参数错误", ExceptionLevel.ERROR),
 
     ;
 

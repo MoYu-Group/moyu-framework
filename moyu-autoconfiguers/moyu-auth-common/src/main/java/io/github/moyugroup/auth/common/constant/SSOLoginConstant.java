@@ -39,11 +39,11 @@ public class SSOLoginConstant {
      */
     public final static String SWITCH_TENANT_PATH = "/switchTenant.html";
     /**
-     * ssoToken 回调端点
+     * ssoToken 回调验证消费端点
      */
-    public final static String OAUTH2_ENDPOINT = "/oauth2";
+    public final static String SSO_VERIFY_ENDPOINT = "/verifySSOToken";
     /**
      * 验证 ssoToken 并获取登录用户信息端点
      */
-    public final static String OAUTH2_GET_USER_ENDPOINT = "/oauth2/getUser";
+    public final static String OAUTH2_GET_USER_ENDPOINT = "/api/sso/getUser";
 }

@@ -16,15 +16,24 @@ public class PathUtil {
     /**
      * 检查路径是否匹配规则
      *
-     * @param path          检查的路径
-     * @param checkPathList 路径规则列表
+     * @param checkPath 路径规则
+     * @param path      检查的路径
      * @return 检查结果
      */
-    public static boolean isMatch(String path, List<String> checkPathList) {
+    public static boolean isMatch(String checkPath, String path) {
+        return pathMatcher.match(checkPath, path);
+    }
+
+    /**
+     * 检查路径是否匹配规则
+     *
+     * @param checkPathList 路径规则列表
+     * @param path          检查的路径
+     * @return 检查结果
+     */
+    public static boolean isMatch(List<String> checkPathList, String path) {
         for (String checkPath : checkPathList) {
-            if (pathMatcher.match(checkPath, path)) {
-                return true;
-            }
+            return isMatch(checkPath, path);
         }
         return false;
     }
