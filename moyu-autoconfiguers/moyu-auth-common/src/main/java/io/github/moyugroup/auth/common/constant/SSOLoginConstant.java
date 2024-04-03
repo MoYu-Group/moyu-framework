@@ -1,7 +1,7 @@
 package io.github.moyugroup.auth.common.constant;
 
 /**
- * SSO 参数常量
+ * SSO 登录常量定义
  * <p>
  * Created by fanfan on 2024/03/30.
  */
@@ -38,6 +38,14 @@ public class SSOLoginConstant {
      * 默认切换租户页面路径
      */
     public final static String SWITCH_TENANT_PATH = "/switchTenant.html";
+    /**
+     * MoYu-Auth 系统默认登录端点
+     */
+    public final static String LOGIN_ENDPOINT = "/ssoLogin";
+    /**
+     * MoYu-Auth 系统默认注销端点
+     */
+    public final static String LOGIN_OUT_ENDPOINT = "/ssoLogout";
     /**
      * ssoToken 回调验证消费端点
      */
