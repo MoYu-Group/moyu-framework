@@ -33,7 +33,9 @@ public class PathUtil {
      */
     public static boolean isMatch(List<String> checkPathList, String path) {
         for (String checkPath : checkPathList) {
-            return isMatch(checkPath, path);
+            if (isMatch(checkPath, path)) {
+                return true;
+            }
         }
         return false;
     }
