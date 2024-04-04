@@ -206,11 +206,11 @@ public class UUIDUtil {
             Environment environment = SpringUtil.getBean(Environment.class);
             port = ":" + environment.getProperty("server.port", "8080");
         } catch (Exception e) {
-            log.info("不在容器内初始化 UUIDUtil 实例");
+            log.error("不在容器内初始化 UUIDUtil 实例");
         }
         try {
             String hostAddress = Inet4Address.getLocalHost().getHostAddress() + port;
-            log.info("hostAddress:{}", hostAddress);
+//            log.debug("hostAddress:{}", hostAddress);
             int[] ints = StringUtils.toCodePoints(hostAddress);
             int sums = 0;
             for (int b : ints) {
