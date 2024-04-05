@@ -54,15 +54,15 @@ public class CookieUtil {
     /**
      * 写入登录 Cookie
      *
-     * @param sessionId sessionId
-     * @param appId     应用ID
-     * @param maxAge    生效时间（秒）
-     * @param path      生效路径
-     * @param response  response
+     * @param cookieData cookieData
+     * @param appId      应用ID
+     * @param maxAge     生效时间（秒）
+     * @param path       生效路径
+     * @param response   response
      */
-    public static void writeSSOLoginCookie(String sessionId, String appId, Integer maxAge, String path, HttpServletResponse response) {
+    public static void writeSSOLoginCookie(String cookieData, String appId, Integer maxAge, String path, HttpServletResponse response) {
         // 写入用户 Cookie
-        Cookie userCookie = new Cookie(appId + COOKIE_VERSION, sessionId);
+        Cookie userCookie = new Cookie(appId + COOKIE_VERSION, cookieData);
         // 设置Cookie的有效期
         userCookie.setMaxAge(maxAge);
         // 设置Cookie的路径，这样只有请求该路径的时候，Cookie才会被发送到服务器
