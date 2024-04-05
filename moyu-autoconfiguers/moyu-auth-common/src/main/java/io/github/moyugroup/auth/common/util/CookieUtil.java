@@ -19,6 +19,18 @@ public class CookieUtil {
     public static final String COOKIE_VERSION = "_SSO_TOKEN_V1";
 
     /**
+     * 根据 AppId 获取 Cookie
+     *
+     * @param request
+     * @param appId
+     * @return
+     */
+    public static String getCookieByAppId(HttpServletRequest request, String appId) {
+        String name = appId + COOKIE_VERSION;
+        return getCookieValue(request, name);
+    }
+
+    /**
      * 从请求中获取指定名称的 Cookie 值。
      *
      * @param request 请求对象
