@@ -27,6 +27,10 @@ public class SSOLoginConstant {
      */
     public final static String GRANT_TYPE = "grantType";
     /**
+     * 主页路径
+     */
+    public final static String INDEX_PAGE_PATH = "/";
+    /**
      * 默认登录页面路径
      */
     public final static String LOGIN_PAGE_PATH = "/ssoLogin.html";
