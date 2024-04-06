@@ -43,13 +43,13 @@ public class SSOLoginConstant {
      */
     public final static String SWITCH_TENANT_PATH = "/switchTenant.html";
     /**
-     * MoYu-Auth 系统默认登录端点
+     * MoYu 登录系统默认登录端点
      */
     public final static String LOGIN_ENDPOINT = "/ssoLogin";
     /**
-     * MoYu-Auth 系统默认注销端点
+     * MoYu 登录系统默认注销端点
      */
-    public final static String LOGIN_OUT_ENDPOINT = "/ssoLogout";
+    public final static String LOGOUT_ENDPOINT = "/ssoLogout";
     /**
      * ssoToken 回调验证消费端点
      */
