@@ -27,16 +27,20 @@ MoYu 框架就是为了解决这个痛点诞生的，将 Java 后端 Web 开发�
 moyu-framework MoYu框架
 │ 
 ├── moyu-autoconfiguers         # 自动装配模块
+│  ├── moyu-auth-common         # 登录系统公共服务
 │  ├── moyu-framework-common    # 公共服务依赖
-│  ├── moyu-web-autoconfiguers  # Web快速开发 自动装配
 │  ├── moyu-security-autoconfigures          # spring security 安全模块 自动装配（TODO）
-│  ├── moyu-orm-jpa-autoconfigures           # spring data jpa 自动装配（TODO）
+│  ├── moyu-orm-jpa-autoconfigures           # spring data jpa 自动装配
 │  ├── moyu-orm-mybatis-plus-autoconfigures  # mybatis-plus 自动装配（TODO）
+│  ├── moyu-web-autoconfiguers  # Web快速开发 自动装配
 │  └── moyu-redis-autoconfigures             # redis 自动装配（TODO）
 │
 ├─ moyu-base                    # 基础模块（可独立依赖）
 │  ├── moyu-model               # 公共模型
 │  └── moyu-util                # 公共工具类
+│
+├─ moyu-sdk                     # 通用 sdk 封装
+│  └── moyu-sso-client-sdk      # sso 登录客户端sdk
 │
 └─ moyu-sample                  # demo工程
 ```
@@ -73,8 +77,8 @@ moyu-framework MoYu框架
 
 ```
 <parent>
-    <artifactId>moyu-framework</artifactId>
     <groupId>io.github.moyu-group</groupId>
+    <artifactId>moyu-framework</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 </parent>
 ```
@@ -83,8 +87,8 @@ moyu-framework MoYu框架
 
 ```
 <dependency>
-    <groupId>io.github.moyu-group</groupId>
-    <artifactId>moyu-web-autoconfiguers</artifactId>
+    <groupId>io.github.moyu-group.framework.autoconfiguers</groupId>
+    <artifactId>moyu-web-autoconfigure</artifactId>
 </dependency>
 ```
 

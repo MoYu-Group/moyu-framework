@@ -2,16 +2,15 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>io.github.moyu-group.framework</groupId>
-        <artifactId>moyu-autoconfiguers</artifactId>
+        <artifactId>moyu-sdk</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.github.moyu-group.framework.autoconfiguers</groupId>
-    <artifactId>moyu-spring-data-jpa-autoconfigure</artifactId>
-    <description>快速集成 spring-data-jpa</description>
+    <groupId>io.github.moyu-group.framework.sdk</groupId>
+    <artifactId>moyu-sso-client-sdk</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -20,15 +19,22 @@
     </properties>
 
     <dependencies>
-        <!-- spring data-jpa -->
+        <!-- spring-boot-starter-web -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <groupId>io.github.moyu-group.framework.autoconfiguers</groupId>
+            <artifactId>moyu-web-autoconfigure</artifactId>
         </dependency>
-        <!-- moyu 工具包 -->
+        <!-- moyu-auth-common -->
         <dependency>
-            <groupId>io.github.moyu-group.framework.base</groupId>
-            <artifactId>moyu-util</artifactId>
+            <groupId>io.github.moyu-group.framework.autoconfiguers</groupId>
+            <artifactId>moyu-auth-common</artifactId>
+        </dependency>
+        <!-- okhttp -->
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <!--            <version>4.12.0</version>-->
         </dependency>
     </dependencies>
+
 </project>
