@@ -1,4 +1,4 @@
-package io.github.moyugroup.spring.data.jpa.model;
+package io.github.moyugroup.orm.jpa.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;

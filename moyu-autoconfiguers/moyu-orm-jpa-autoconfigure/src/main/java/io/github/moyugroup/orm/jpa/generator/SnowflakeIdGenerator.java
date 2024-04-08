@@ -1,4 +1,4 @@
-package io.github.moyugroup.spring.data.jpa.generator;
+package io.github.moyugroup.orm.jpa.generator;
 
 import io.github.moyugroup.base.util.UUIDUtil;
 import org.hibernate.engine.spi.SharedSessionContractImplementor;

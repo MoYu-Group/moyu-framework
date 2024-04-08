@@ -1,6 +1,6 @@
-package io.github.moyugroup.spring.data.jpa.model;
+package io.github.moyugroup.orm.jpa.model;
 
-import io.github.moyugroup.spring.data.jpa.generator.SnowflakeIdGenerator;
+import io.github.moyugroup.orm.jpa.generator.SnowflakeIdGenerator;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
