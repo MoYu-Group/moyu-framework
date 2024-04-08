@@ -9,7 +9,7 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>io.github.moyu-group.moyu-framework</groupId>
+    <groupId>io.github.moyu-group.framework</groupId>
     <artifactId>moyu-base</artifactId>
 
     <packaging>pom</packaging>

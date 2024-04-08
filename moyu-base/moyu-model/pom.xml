@@ -3,13 +3,13 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <groupId>io.github.moyu-group.moyu-framework</groupId>
+        <groupId>io.github.moyu-group.framework</groupId>
         <artifactId>moyu-base</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>io.github.moyu-group.moyu-framework.moyu-base</groupId>
+    <groupId>io.github.moyu-group.framework.base</groupId>
     <artifactId>moyu-model</artifactId>
     <description>本工程用于定义公共的模型类，PO的基类，统一的返回值，分页查询对象等</description>
 

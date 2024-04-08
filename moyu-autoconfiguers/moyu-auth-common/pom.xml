@@ -3,13 +3,13 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <groupId>io.github.moyu-group.moyu-framework</groupId>
+        <groupId>io.github.moyu-group.framework</groupId>
         <artifactId>moyu-autoconfiguers</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>io.github.moyu-group.moyu-framework.moyu-autoconfiguers</groupId>
+    <groupId>io.github.moyu-group.framework.autoconfiguers</groupId>
     <artifactId>moyu-auth-common</artifactId>
     <description>本工程用于定义摸鱼登录系统的公共服务和依赖</description>
 

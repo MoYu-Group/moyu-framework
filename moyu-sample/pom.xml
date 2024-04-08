@@ -9,14 +9,14 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.github.moyu-group.moyu-framework</groupId>
+    <groupId>io.github.moyu-group.framework</groupId>
     <artifactId>moyu-sample</artifactId>
     <description>框架快速集成示例</description>
 
     <dependencies>
         <!-- 集成web快速开发 -->
         <dependency>
-            <groupId>io.github.moyu-group.moyu-framework.moyu-autoconfiguers</groupId>
+            <groupId>io.github.moyu-group.framework.autoconfiguers</groupId>
             <artifactId>moyu-web-autoconfigure</artifactId>
         </dependency>
     </dependencies>
