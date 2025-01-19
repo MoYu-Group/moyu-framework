@@ -12,7 +12,7 @@ public class TraceIdMdcUtil {
     /**
      * 日志跟踪标识 TraceId
      */
-    public final static String TRACE_ID = "TraceId";
+    public final static String TRACE_ID_HEADER = "Trace-Id";
 
     /**
      * 获取 TraceId

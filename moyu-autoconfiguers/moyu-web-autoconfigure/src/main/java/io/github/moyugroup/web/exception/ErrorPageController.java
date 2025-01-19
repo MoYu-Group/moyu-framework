@@ -92,7 +92,7 @@ public class ErrorPageController extends BasicErrorController {
     }
 
     private void setTraceId(Result<?> result, HttpServletRequest request) {
-        Object traceIdObj = request.getAttribute(TraceIdMdcUtil.TRACE_ID);
+        Object traceIdObj = request.getAttribute(TraceIdMdcUtil.TRACE_ID_HEADER);
         if (Objects.nonNull(traceIdObj) && traceIdObj instanceof String traceId) {
             result.setTraceId(traceId);
         }

@@ -28,7 +28,7 @@ public class ResponseAdvice implements ResponseBodyAdvice<Object> {
     public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType, Class selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
         Result<?> result = (Result<?>) body;
         // Result 增加日志追踪标识 TraceId
-        result.setTraceId(MDC.get(TraceIdMdcUtil.TRACE_ID));
+        result.setTraceId(MDC.get(TraceIdMdcUtil.TRACE_ID_HEADER));
         return result;
     }
 

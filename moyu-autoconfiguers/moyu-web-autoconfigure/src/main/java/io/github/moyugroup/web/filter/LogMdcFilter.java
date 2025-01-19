@@ -36,20 +36,20 @@ public class LogMdcFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         final HttpServletRequest reqs = (HttpServletRequest) servletRequest;
         final HttpServletResponse resp = (HttpServletResponse) servletResponse;
-        String traceId = reqs.getHeader(TraceIdMdcUtil.TRACE_ID);
+        String traceId = reqs.getHeader(TraceIdMdcUtil.TRACE_ID_HEADER);
         if (StringUtils.isBlank(traceId)) {
             traceId = TraceIdMdcUtil.getRequestId();
         }
         // MDC 添加 TraceId
-        MDC.put(TraceIdMdcUtil.TRACE_ID, traceId);
+        MDC.put(TraceIdMdcUtil.TRACE_ID_HEADER, traceId);
         try {
             // servletRequest 添加 traceId
-            servletRequest.setAttribute(TraceIdMdcUtil.TRACE_ID, traceId);
+            servletRequest.setAttribute(TraceIdMdcUtil.TRACE_ID_HEADER, traceId);
             // 在响应头添加 TraceId
-            resp.addHeader(TraceIdMdcUtil.TRACE_ID, traceId);
+            resp.addHeader(TraceIdMdcUtil.TRACE_ID_HEADER, traceId);
             filterChain.doFilter(servletRequest, servletResponse);
         } finally {
-            MDC.remove(TraceIdMdcUtil.TRACE_ID);
+            MDC.remove(TraceIdMdcUtil.TRACE_ID_HEADER);
         }
     }
 

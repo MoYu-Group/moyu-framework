@@ -106,7 +106,7 @@ public class WebUtil {
                     return;
                 }
                 if (obj instanceof Result<?> result) {
-                    Object traceId = request.getAttribute(TraceIdMdcUtil.TRACE_ID);
+                    Object traceId = request.getAttribute(TraceIdMdcUtil.TRACE_ID_HEADER);
                     if (Objects.nonNull(traceId)) {
                         result.setTraceId((String) traceId);
                     }
