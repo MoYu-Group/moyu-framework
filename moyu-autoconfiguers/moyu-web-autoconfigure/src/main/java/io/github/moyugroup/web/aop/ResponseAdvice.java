@@ -1,7 +1,7 @@
 package io.github.moyugroup.web.aop;
 
 import io.github.moyugroup.base.model.pojo.Result;
-import io.github.moyugroup.web.util.TraceIdMdcUtil;
+import io.github.moyugroup.constant.CommonConstants;
 import org.slf4j.MDC;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
@@ -28,7 +28,7 @@ public class ResponseAdvice implements ResponseBodyAdvice<Object> {
     public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType, Class selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
         Result<?> result = (Result<?>) body;
         // Result 增加日志追踪标识 TraceId
-        result.setTraceId(MDC.get(TraceIdMdcUtil.TRACE_ID_HEADER));
+        result.setTraceId(MDC.get(CommonConstants.TRACE_ID));
         return result;
     }
 

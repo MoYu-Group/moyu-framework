@@ -12,20 +12,13 @@
     <!--引入自定义日志转换器-->
     <conversionRule conversionWord="mask"
                     converterClass="io.github.moyugroup.logback.converter.MaskingPatternConverter"/>
-    <!--控制台日志格式-->
-    <property name="CONSOLE_LOG_PATTERN_MDC"
-              value="${CONSOLE_LOG_PATTERN_MDC:-%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint}%clr(%X{Trace-Id}|){faint}%mask%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
-    <!--文件日志格式-->
-    <property name="FILE_LOG_PATTERN_MDC"
-              value="${FILE_LOG_PATTERN_MDC:-%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}} ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } --- [%t] %-40.40logger{39} :%X{Trace-Id}|%mask%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
-
 
     <!--控制台日志-->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <charset>${CHARSET}</charset>
             <!--日志格式，这里用的Spring提供的默认实现，CONSOLE日志在控制台有代码高亮-->
-            <pattern>${CONSOLE_LOG_PATTERN_MDC}</pattern>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
         </encoder>
     </appender>
 
@@ -34,7 +27,7 @@
         <file>${LOG_FILE}</file>
         <encoder>
             <charset>${CHARSET}</charset>
-            <pattern>${FILE_LOG_PATTERN_MDC}</pattern>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <!--文件名称，i代表文件分割时的序号-->

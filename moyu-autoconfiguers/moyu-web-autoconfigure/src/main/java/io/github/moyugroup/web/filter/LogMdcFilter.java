@@ -1,6 +1,6 @@
 package io.github.moyugroup.web.filter;
 
-import io.github.moyugroup.web.util.TraceIdMdcUtil;
+import io.github.moyugroup.constant.CommonConstants;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
@@ -22,7 +22,7 @@ import java.io.IOException;
  */
 @Slf4j
 @Component
-@Order(Ordered.HIGHEST_PRECEDENCE)
+@Order(Ordered.HIGHEST_PRECEDENCE + 50)
 @WebFilter(filterName = "LogFilter", urlPatterns = "/*")
 public class LogMdcFilter implements Filter {
 
@@ -36,20 +36,20 @@ public class LogMdcFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         final HttpServletRequest reqs = (HttpServletRequest) servletRequest;
         final HttpServletResponse resp = (HttpServletResponse) servletResponse;
-        String traceId = reqs.getHeader(TraceIdMdcUtil.TRACE_ID_HEADER);
-        if (StringUtils.isBlank(traceId)) {
-            traceId = TraceIdMdcUtil.getRequestId();
+        String traceId = reqs.getHeader(CommonConstants.TRACE_ID_HEADER);
+        if (StringUtils.isNotEmpty(traceId)) {
+            MDC.put(CommonConstants.TRACE_ID, traceId);
+        } else {
+            traceId = MDC.get(CommonConstants.TRACE_ID);
         }
-        // MDC 添加 TraceId
-        MDC.put(TraceIdMdcUtil.TRACE_ID_HEADER, traceId);
         try {
             // servletRequest 添加 traceId
-            servletRequest.setAttribute(TraceIdMdcUtil.TRACE_ID_HEADER, traceId);
+            servletRequest.setAttribute(CommonConstants.TRACE_ID, traceId);
             // 在响应头添加 TraceId
-            resp.addHeader(TraceIdMdcUtil.TRACE_ID_HEADER, traceId);
+            resp.addHeader(CommonConstants.TRACE_ID_HEADER, traceId);
             filterChain.doFilter(servletRequest, servletResponse);
         } finally {
-            MDC.remove(TraceIdMdcUtil.TRACE_ID_HEADER);
+            MDC.remove(CommonConstants.TRACE_ID);
         }
     }
 

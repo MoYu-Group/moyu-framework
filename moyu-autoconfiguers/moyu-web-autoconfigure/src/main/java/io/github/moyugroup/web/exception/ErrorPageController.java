@@ -2,7 +2,7 @@ package io.github.moyugroup.web.exception;
 
 import cn.hutool.core.bean.BeanUtil;
 import io.github.moyugroup.base.model.pojo.Result;
-import io.github.moyugroup.web.util.TraceIdMdcUtil;
+import io.github.moyugroup.constant.CommonConstants;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -92,7 +92,7 @@ public class ErrorPageController extends BasicErrorController {
     }
 
     private void setTraceId(Result<?> result, HttpServletRequest request) {
-        Object traceIdObj = request.getAttribute(TraceIdMdcUtil.TRACE_ID_HEADER);
+        Object traceIdObj = request.getAttribute(CommonConstants.TRACE_ID);
         if (Objects.nonNull(traceIdObj) && traceIdObj instanceof String traceId) {
             result.setTraceId(traceId);
         }

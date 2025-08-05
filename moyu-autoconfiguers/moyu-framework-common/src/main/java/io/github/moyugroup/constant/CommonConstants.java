@@ -22,4 +22,14 @@ public class CommonConstants {
      * 配置的项目名称属性
      */
     public static final String PROJECT_NAME = "spring.application.name";
+
+    /**
+     * traceId
+     */
+    public final static String TRACE_ID = "traceId";
+
+    /**
+     * traceId Header
+     */
+    public final static String TRACE_ID_HEADER = "X-Trace-Id";
 }
