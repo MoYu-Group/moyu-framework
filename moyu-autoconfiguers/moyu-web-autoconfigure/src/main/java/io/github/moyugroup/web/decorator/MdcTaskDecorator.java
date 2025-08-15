@@ -6,7 +6,7 @@ import org.springframework.core.task.TaskDecorator;
 import java.util.Map;
 
 /**
- * MDC 任务适配器
+ * MDC 任务任务装饰器
  * <p>
  * Created by fanfan on 2023/04/05.
  */

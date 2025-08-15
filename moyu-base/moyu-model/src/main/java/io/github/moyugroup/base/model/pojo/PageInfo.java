@@ -39,7 +39,7 @@ public class PageInfo<T> {
     /**
      * 分页数据
      */
-    private List<T> data;
+    private List<T> records;
 
     /**
      * 构建分页对象
@@ -56,7 +56,7 @@ public class PageInfo<T> {
         pageInfo.setCurrentPage(currentPage);
         pageInfo.setPageSize(pageSize);
         pageInfo.setTotalCount(totalCount);
-        pageInfo.setData(data);
+        pageInfo.setRecords(data);
         return pageInfo;
     }
 

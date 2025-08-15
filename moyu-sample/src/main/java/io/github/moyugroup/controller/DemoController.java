@@ -65,7 +65,7 @@ public class DemoController {
         pageInfo.setCurrentPage(1);
         pageInfo.setPageSize(10);
         pageInfo.setTotalCount(99);
-        pageInfo.setData(null);
+        pageInfo.setRecords(null);
         return Result.success(pageInfo);
     }
 
